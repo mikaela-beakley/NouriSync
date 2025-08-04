@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NouriSync Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+      <!-- top bar -->
+    <nav>
+        <div class="logo">NOURISYNC</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- main page -->
+    <main>
+
+        <!-- welcome text n streak box -->
+        <div class="welcome-row">
+            <section id="welcome">
+                <h1>Welcome back, <br><span id="username">Sean-Manuel</span>.</h1>
+            </section>
+
+            <section id="streak-widget" aria-label="Streak widget">
+                <div class="streak-box">
+                    <div class="streak-number" id="streak-count">3</div>
+                    <div class="streak-message">3&nbsp;day streak! You got this!</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- primary actions -->
+        <section id="actions">
+            <button id="risk-status">Risk Status</button>
+            <button id="export-btn">Export Log</button>
+        </section>
+
+        <!-- daily log list -->
+        <section id="daily-logs">
+
+            <!-- example log entry -->
+            <article class="daily-log">
+                <header>
+                    <h2>Thursday, July 31</h2>
+                    <span class="risk-level high">High Risk</span>
+                </header>
+
+                <p class="log-summary">Low meal completion, purge urge reported.</p>
+
+                <!-- dropdown -->
+                <details>
+                    <summary>View plan</summary>
+                    <ul>
+                        <li>Full meal supervision (30&nbsp;min)</li>
+                        <li>No bathroom alone for 1&nbsp;h after meals</li>
+                        <li>Contact clinician if HR &lt; 50&nbsp;bpm</li>
+                    </ul>
+                </details>
+            </article>
+        </section>
+
+    </main>
+
+</body>
+</html>

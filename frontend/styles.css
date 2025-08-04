@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  padding: 0 1rem 2rem;
+}
+
+/*top bar*/
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ccc;
+}
+
+nav .logo {
+  font-weight: bold;
+  letter-spacing: 0.04em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+/*main page layout*/
+main {
+  max-width: 700px;
+  margin: 2rem auto 0;
+}
+
+#streak-widget {
+  margin: 1rem 0;
+}
+
+#actions {
+  margin: 1rem 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #999;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+/*daily logs*/
+.daily-log {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.risk-level {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.risk-level.high {
+  color: #c62828; 
+}
+
+.risk-level.med {
+  color: #ef6c00; 
+}
+
+.risk-level.low {
+  color: #2e7d32; 
+}
+
+/* welcome and streak row */
+.welcome-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+#streak-widget {
+  margin: 0;
+}
+
+#streak-widget .streak-box {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  background: #fafafa;
+  min-width: 120px;
+}
+
+.streak-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 0.25rem;
+}
+
+.streak-message {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  color: #666;
+}
