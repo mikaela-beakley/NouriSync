@@ -8,7 +8,101 @@
     <script src="../static/javascript/questionnaire.js" defer></script>
 </head>
 <body>
-    <h1>This is the questionnaire page</h1>
-    <a href="/">home</a>
+    <div class="main-content-questionnaire">
+        <div class="questionnaire-form-caregiver">
+            <h1>Caregiver Questions</h1>
+            <form action="/questionnaire-caregiver-info" method="post" class="questionnaire caregiver-questionnaire">
+                <div class="scale-question">
+                    <p>The patient ate their required meals</p>
+                    <input type="radio" name="scale-question-1" id="strongly-disagree" value=0>
+                    <label for="strongly-disagree">Strongly Disagree</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="somewhat-disagree" value=1>
+                    <label for="somewhat-disagree">Somewhat Disagree</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="neutral" value=2>
+                    <label for="neutral">Neutral</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="somewhat-agree" value=3>
+                    <label for="somewhat-agree">Somewhat Agree</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="strongly-agree" value=4>
+                    <label for="strongly-agree">Strongly Agree</label>
+                </div>
+                <br>
+                <div class="scale-question">
+                    <p>Other question</p>
+                    <input type="radio" name="scale-question-2" id="strongly-disagree" value=0>
+                    <label for="strongly-disagree">Strongly Disagree</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-disagree" value=1>
+                    <label for="somewhat-disagree">Somewhat Disagree</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="neutral" value=2>
+                    <label for="neutral">Neutral</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-agree" value=3>
+                    <label for="somewhat-agree">Somewhat Agree</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="strongly-agree" value=4>
+                    <label for="strongly-agree">Strongly Agree</label>
+                </div>
+                <br>
+                <label for="comments">Additional comments:</label><br>
+                <input type="text" id="comments" name="comments" value="" size=30>
+                <br>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="main-content-questionnaire">
+            <div class="questionnaire-form-caregiver">
+                <h1>Patient Questions</h1>
+                <form action="/questionnaire-patient-info" method="post" class="questionnaire caregiver-questionnaire">
+                    <div class="scale-question">
+                        <p>How are you feeling today?</p>
+                        <input type="radio" name="scale-question-1" id="strongly-disagree" value=0>
+                        <label for="strongly-disagree">Very Sad</label>
+                        <br>
+                        <input type="radio" name="scale-question-1" id="somewhat-disagree" value=1>
+                        <label for="somewhat-disagree">Somewhat Sad</label>
+                        <br>
+                        <input type="radio" name="scale-question-1" id="neutral" value=2>
+                        <label for="neutral">Neutral</label>
+                        <br>
+                        <input type="radio" name="scale-question-1" id="somewhat-agree" value=3>
+                        <label for="somewhat-agree">Somewhat Happy</label>
+                        <br>
+                        <input type="radio" name="scale-question-1" id="strongly-agree" value=4>
+                        <label for="strongly-agree">Very Happy</label>
+                    </div>
+                    <br>
+                    <div class="scale-question">
+                        <p>Other question</p>
+                        <input type="radio" name="scale-question-2" id="strongly-disagree" value=0>
+                        <label for="strongly-disagree">Strongly Disagree</label>
+                        <br>
+                        <input type="radio" name="scale-question-2" id="somewhat-disagree" value=1>
+                        <label for="somewhat-disagree">Somewhat Disagree</label>
+                        <br>
+                        <input type="radio" name="scale-question-2" id="neutral" value=2>
+                        <label for="neutral">Neutral</label>
+                        <br>
+                        <input type="radio" name="scale-question-2" id="somewhat-agree" value=3>
+                        <label for="somewhat-agree">Somewhat Agree</label>
+                        <br>
+                        <input type="radio" name="scale-question-2" id="strongly-agree" value=4>
+                        <label for="strongly-agree">Strongly Agree</label>
+                    </div>
+                    <br>
+                    <label for="comments">Additional comments:</label><br>
+                    <input type="text" id="comments" name="comments" value="" size=30>
+                    <br>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
