@@ -5,113 +5,182 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-  padding: 0 1rem 2rem;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f5f8fa;
+  color: #2c3e50;
+  padding: 1rem;
 }
 
-/*top bar*/
+/* Nav */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #dcdfe3;
 }
 
-nav .logo {
-  font-weight: bold;
-  letter-spacing: 0.04em;
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
 }
 
-nav ul {
+.nav-links {
   list-style: none;
   display: flex;
   gap: 1rem;
 }
 
-nav a {
+.nav-links a {
   text-decoration: none;
-  color: #333;
+  color: #3c3c3c;
+  font-weight: 500;
 }
 
-/*main page layout*/
+/* Layout */
 main {
-  max-width: 700px;
-  margin: 2rem auto 0;
+  max-width: 800px;
+  margin: 2rem auto;
 }
 
-#streak-widget {
-  margin: 1rem 0;
-}
-
-#actions {
-  margin: 1rem 0;
+/* Welcome & Streak */
+.welcome-row {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+#welcome h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+#welcome span {
+  color: #2f80ed;
+}
+
+/* Streak Widget */
+.streak-box {
+  background: #ffffff;
+  border: 1px solid #e0e5ec;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  min-width: 180px;
+}
+
+.streak-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.streak-message {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.streak-days {
+  display: flex;
+  justify-content: center;
   gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.day {
+  background-color: #e0e0e0;
+  color: #333;
+  font-weight: bold;
+  font-size: 0.75rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  line-height: 24px;
+  text-align: center;
+}
+
+.day.completed {
+  background-color: #F36337;
+  color: white;
+}
+
+/* Actions */
+#actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
 }
 
 button {
-  padding: 0.5rem 1rem;
-  border: 1px solid #999;
-  background: #f0f0f0;
+  padding: 0.6rem 1.2rem;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/*daily logs*/
+button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Daily Logs */
 .daily-log {
-  border: 1px solid #ddd;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border-radius: 4px;
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  border: 1px solid #e3e7ec;
+}
+
+.daily-log header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .risk-level {
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
   font-size: 0.85rem;
   font-weight: bold;
 }
 
 .risk-level.high {
-  color: #c62828; 
+  background-color: #ffebee;
+  color: #c62828;
 }
 
-.risk-level.med {
-  color: #ef6c00; 
+.risk-level.medium {
+  background-color: #fffeeb;
+  color: #d6b600;
 }
 
 .risk-level.low {
-  color: #2e7d32; 
+  background-color: #f2ffeb;
+  color: #00b34d;
 }
 
-/* welcome and streak row */
-.welcome-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+.log-summary {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.95rem;
+  color: #333;
 }
 
-#streak-widget {
-  margin: 0;
+details summary {
+  cursor: pointer;
+  font-weight: 500;
 }
 
-#streak-widget .streak-box {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  text-align: center;
-  background: #fafafa;
-  min-width: 120px;
-}
-
-.streak-number {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-top: 0.25rem;
-}
-
-.streak-message {
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-  color: #666;
+ul {
+  margin-top: 0.5rem;
+  padding-left: 1.25rem;
 }
