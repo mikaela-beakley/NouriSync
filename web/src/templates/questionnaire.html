@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caregiver-Patient Questionnaire</title>
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <script src="../static/javascript/questionnaire.js" defer></script>
+</head>
+<body>
+    <div class="main-content-questionnaire">
+        <div class="questionnaire-form-caregiver">
+            <h1>Patient Questions</h1>
+            <form action="/questionnaire-patient-info" method="post" class="questionnaire caregiver-questionnaire">
+                <div class="scale-question">
+                    <p>How are you feeling today?</p>
+                    <input type="radio" name="scale-question-1" id="strongly-disagree" value=0>
+                    <label for="strongly-disagree">Very Sad</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="somewhat-disagree" value=1>
+                    <label for="somewhat-disagree">Somewhat Sad</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="neutral" value=2>
+                    <label for="neutral">Neutral</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="somewhat-agree" value=3>
+                    <label for="somewhat-agree">Somewhat Happy</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="strongly-agree" value=4>
+                    <label for="strongly-agree">Very Happy</label>
+                </div>
+                <br>
+                <br>
+                <div class="scale-question">
+                    <p>How supported do you feel by the people around you this week?</p>
+                    <input type="radio" name="scale-question-2" id="strongly-disagree" value=0>
+                    <label for="strongly-disagree">Not at all supported</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-disagree" value=1>
+                    <label for="somewhat-disagree">A little supported</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="neutral" value=2>
+                    <label for="neutral">Neutral</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-agree" value=3>
+                    <label for="somewhat-agree">Mostly supported</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="strongly-agree" value=4>
+                    <label for="strongly-agree">Completely supported</label>
+                </div>
+                <br>
+                <br>
+                <div class="open-question">
+                    <label for="tough-time">Please describe a time during the day that felt especially tough.</label>
+                    <br>
+                    <input type="text" id="tough-time" name="tough-time" value="" size="30">
+                </div>
+                <br>
+                <br>
+                <div class="open-question">
+                    <label for="something-feels-safer">Please describe something that makes you feel safer when things get hard.</label>
+                    <br>
+                    <input type="text" id="something-feels-safer" name="something-feels-safer" value="" size="30">
+                </div>
+                <br>
+                <br>
+                <div class="open-question">
+                    <label for="tough-time">Please describe something that your caregiver does that feels helpful.</label>
+                    <br>
+                    <input type="text" id="caregiver-helpful" name="caregiver-helpful" value="" size="30">
+                </div>
+                <br>
+                <br>
+                <div class="open-question">
+                    <label for="tough-time">Please describe something that you want your caregiver to work on.</label>
+                    <br>
+                    <input type="text" id="caregiver-unhelpful" name="caregiver-unhelpful" value="" size="30">
+                </div>
+                <br>
+                <br>
+                <div class="slider-question">
+                    <label for="recover-ready">How ready do you feel to continue working on your recovery?</label>
+                    <br>
+                    Not ready
+                    <input type="range" id="recover-ready" name="recover-ready" min="0" max="10">
+                    Let's go!
+                </div>
+                <br>
+                <br>
+                <label for="comments">Is there anything you would like to privately note for the journal?</label>
+                <br>
+                <input type="text" id="comments" name="comments" value="" size=30>
+                <br>
+                <br>
+                <input type="submit" value="I'm done">
+            </form>
+        </div>
+        <div class="questionnaire-form-caregiver">
+            <h1>Caregiver Questions</h1>
+            <form action="/questionnaire-caregiver-info" method="post" class="questionnaire caregiver-questionnaire">
+                <div class="scale-question">
+                    <p>The patient ate their required meals</p>
+                    <input type="radio" name="scale-question-1" id="strongly-disagree" value=0>
+                    <label for="strongly-disagree">Strongly Disagree</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="somewhat-disagree" value=1>
+                    <label for="somewhat-disagree">Somewhat Disagree</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="neutral" value=2>
+                    <label for="neutral">Neutral</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="somewhat-agree" value=3>
+                    <label for="somewhat-agree">Somewhat Agree</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="strongly-agree" value=4>
+                    <label for="strongly-agree">Strongly Agree</label>
+                </div>
+                <br>
+                <br>
+                <div class="radio-question">
+                    <p>What do you think your loved one might need from you right now?</p>
+                    <input type="radio" name="scale-question-2" id="strongly-disagree" value="Space and patience">
+                    <label for="strongly-disagree">Space and patience</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-disagree" value="Encouragement and presence">
+                    <label for="somewhat-disagree">Encouragement and presence</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="neutral" value="A small positive distraction">
+                    <label for="neutral">A small positive distraction</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-agree" value="I'm not sure">
+                    <label for="somewhat-agree">I'm not sure</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="strongly-agree" value="Other">
+                    <label for="strongly-agree">Other</label>
+                </div>
+                <br>
+                <br>
+                <label for="comments">Is there anything you would like to privately note for the journal?</label><br>
+                <input type="text" id="comments" name="comments" value="" size=30>
+                <br>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

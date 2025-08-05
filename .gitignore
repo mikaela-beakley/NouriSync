@@ -1,0 +1,39 @@
+# 💻 Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+
+# 🚫 Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# ⚙️ IDE & editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 🔧 OS junk
+.DS_Store
+Thumbs.db
+
+# 🌐 Flask cache
+instance/
+*.log
+
+# 📦 Dependency folders
+*.sqlite3
+*.db
+*.bak
+
+# 📄 Environment files
+.env
+*.env

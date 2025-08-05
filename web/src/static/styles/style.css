@@ -1,0 +1,243 @@
+:root {
+    --bg-main: #f5e6ca;
+    --bg-secondary: #FDFAF5;
+    --selected: #E4DAC7;
+    --accent-primary: #ECAD4E;
+    --accent-primary-light: #F4D19B;
+    --transition: .75s
+}
+
+body {
+    font-family: "Baloo 2", cursive;
+    background-color: var(--bg-main);
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0.5em;
+    background-color: var(--bg-secondary);
+    border-radius: 15px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  gap: 50rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #3c3c3c;
+  font-weight: 500;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  background-color: rgb(255, 249, 213);
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  background-color: rgb(255, 247, 199);
+}
+
+.welcome-info {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 3em;
+    padding-right: 3em;
+    gap: 2em;
+}
+
+.welcome-left {
+    flex: 2;
+    padding-left: 0.5em;
+}
+
+.welcome-left > h1 {
+    font-size: 3.5em;
+    text-align: left;
+}
+
+.new-log-button {
+    width: 100%;
+    font-family: 'Baloo 2', cursive;
+    border: 2px solid black;
+    background-color: var(--accent-primary);
+    font-size: 1.5em;
+    padding: .5em;
+    border-radius: 15px;
+    transition: all .5s ease-out;
+    cursor: pointer;
+}
+
+.new-log-button:hover {
+    background-color: var(--accent-primary-light);
+}
+
+.streak-info {
+    background: var(--bg-secondary);
+    order: 1px solid #e0e5ec;
+    border-radius: 12px;
+    padding: 4rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    min-width: 180px;
+}
+
+.streak-info-top {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.fire-streak-image {
+    aspect-ratio: 1;
+    width: 15%;
+}
+
+.streak-info-bottom {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.streak-days {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.day {
+  background-color: #e0e0e0;
+  color: #333;
+  font-weight: bold;
+  font-size: 0.75rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  line-height: 24px;
+  text-align: center;
+}
+
+.day.completed {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Dynamic log container */
+.logs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Individual log card */
+.log {
+  background: white;
+  border-radius: 12px;
+  margin-top: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  border: 1px solid #e3e7ec;
+}
+
+/* Log top section */
+.log-top-info h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+/* Risk display styling */
+.risk-indicator {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.risk-indicator.low-risk {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.risk-indicator.medium-risk {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.risk-indicator.high-risk {
+  background: #ffebee;
+  color: #c62828;
+}
+
+/* Bottom log info */
+.log-bottom-info p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Collapsible button */
+.collapsable {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.collapsable svg {
+  transition: transform 0.3s ease;
+}
+
+/* Expanded content */
+.log-content {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.log-content h5 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.log-plan {
+  padding-left: 1.25rem;
+}
+
+.log-plan li {
+  margin-bottom: 1rem;
+}
+
+.loading-message,
+.no-logs-message,
+.error-message {
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}

@@ -1,0 +1,22 @@
+{
+    "caretaker-name": "Helen",
+    "patient-name": "Zach",
+    "log-history": [
+        {
+            "id": 1,
+            "report": "This is yet another sample log report",
+            "time": "8/2/2025 - 9:15 AM"
+        },
+        {
+            "id": 2,
+            "report": "This is another sample log report",
+            "time": "8/3/2025 - 6:41 PM"
+        },
+        {
+            "id": 3,
+            "report": "This is a sample log report",
+            "time": "8/4/2025 - 7:32 PM"
+        }
+    ],
+    "streak": 3
+}
