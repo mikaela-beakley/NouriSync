@@ -1,21 +1,58 @@
 [
   {
     "id": 1,
-    "timestamp": "08/04/2025 - 10:15 PM",
+    "timestamp": "08/04/2025 - 10:41 PM",
     "patient_input": {
       "scale-question-1": "4",
       "scale-question-2": "4",
-      "tough-time": "asd",
-      "something-feels-safer": "dasd",
-      "caregiver-helpful": "asd",
-      "caregiver-unhelpful": "fasd",
+      "tough-time": "asdsd",
+      "something-feels-safer": "asdasd",
+      "caregiver-helpful": "asdasdf",
+      "caregiver-unhelpful": "dasf",
       "recover-ready": "10",
-      "comments": "Nope"
+      "comments": "d"
     },
     "caregiver_input": {
       "scale-question-1": "4",
-      "scale-question-2": "Space and patience",
-      "comments": "Nope"
+      "scale-question-2": "Encouragement and presence",
+      "comments": "ff"
+    },
+    "ai_response": {
+      "risk_score": "low",
+      "risk_factors": [
+        "Regular monitoring indicated"
+      ],
+      "plan": [
+        {
+          "step": "Continue regular meal support.",
+          "rationale": "Maintain positive momentum in recovery.",
+          "source": "Recovery-oriented care principles"
+        },
+        {
+          "step": "Celebrate small wins together.",
+          "rationale": "Positive reinforcement enhances motivation.",
+          "source": "Behavioral therapy principles"
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "timestamp": "08/04/2025 - 10:45 PM",
+    "patient_input": {
+      "scale-question-1": "4",
+      "scale-question-2": "3",
+      "tough-time": "d",
+      "something-feels-safer": "ddd",
+      "caregiver-helpful": "ddd",
+      "caregiver-unhelpful": "dd",
+      "recover-ready": "10",
+      "comments": "asd"
+    },
+    "caregiver_input": {
+      "scale-question-1": "2",
+      "scale-question-2": "Encouragement and presence",
+      "comments": "ddd"
     },
     "ai_response": {
       "risk_score": "low",

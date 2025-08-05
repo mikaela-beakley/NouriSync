@@ -48,54 +48,9 @@
                     </div> -->
                 </div>
             </div>
-            <div class="logs-list">
-                <div class="log">
-                    <div class="log-top-info">
-                        <h5>Thursday, July 31</h5>
-                    </div>
-                    <div class="log-bottom-info">
-                        <div class="risk-indicator low-risk">Low Risk</div>
-                        <p>Stable eating habits, calm mood, no urges</p>
-                        
-                        <button class="collapsable">
-                            <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M26.0577 16.25L14.0385 3.75L2.01928 16.25" stroke="black" stroke-width="5"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="log-content">
-                        <h5>Recommended plan</h5>
-                        <ol class="log-plan">
-                            <li>Full meal supervision</li>
-                            <li>No bathroom alone for 1hr after meals</li>
-                            <li>Contact clinician if HR < 50 bpm</li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="log">
-                    <div class="log-top-info">
-                        <h5>Wednesday, July 30</h5>
-                    </div>
-                    <div class="log-bottom-info">
-                        <div class="risk-indicator low-risk">High Risk</div>
-                        <p>Low meal completion, purge urge reported</p>
-                        
-                        <button class="collapsable">
-                            <svg width="30" height="19" viewBox="0 0 30 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M27.5 2.75L15 15.25L2.5 2.75" stroke="black" stroke-width="5"/>
-                            </svg>
-
-                        </button>
-                    </div>
-                    <div class="log-content">
-                        <h5>Recommended plan</h5>
-                        <ol class="log-plan">
-                            <li>Full meal supervision</li>
-                            <li>No bathroom alone for 1hr after meals</li>
-                            <li>Contact clinician if HR < 50 bpm</li>
-                        </ol>
-                    </div>
-                </div>
+            <div class="logs-list" id="logs-container">
+                <!-- Dynamic logs will be loaded here -->
+                <div class="loading-message">Loading logs...</div>
             </div>
         </div>
     </hero>

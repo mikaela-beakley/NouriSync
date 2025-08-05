@@ -230,8 +230,10 @@ def post_caregiver_answers():
         
         print("Log entry saved successfully")
         
-        # Return AI response as JSON
-        return jsonify(ai_response)
+        # Return AI response as JSON (just for testing, to see the response)
+        #return jsonify(ai_response)
+        # Redirect back to home page to see the new log
+        return redirect("/")
         
     except Exception as e:
         print(f"Error processing caregiver data: {e}")
