@@ -1,0 +1,89 @@
+:root {
+    --bg-main: #f5e6ca;
+    --bg-secondary: #FDFAF5;
+    --selected: #E4DAC7
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--bg-main);
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0.5em;
+    background-color: var(--bg-secondary);
+    border-radius: 3px;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-item {
+    padding: 0.5em;
+    
+}
+
+.nav-item.selected {
+    background-color: var(--selected);
+    border-radius: 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000000;
+}
+
+.welcome-info {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 3em;
+    padding-right: 3em;
+    gap: 2em;
+}
+
+.welcome-left {
+    flex: 2;
+    padding-left: 0.5em;
+}
+
+.welcome-left > h1 {
+    font-size: 3.5em;
+    text-align: left;
+}
+
+.new-log {
+    flex-grow: 1;
+    background-color: #00ff00;
+}
+
+.export-log {
+    flex-grow: 1;
+}
+
+.welcome-options > button {
+    width: 100%;
+}
+
+.streak-info {
+    background-color: #ff0000;
+}
+
+.streak-info-top {
+    display: flex;
+    align-items: center;
+}
+
+.fire-streak-image {
+    width: 5%;
+}

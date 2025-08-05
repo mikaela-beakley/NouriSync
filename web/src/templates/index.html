@@ -6,6 +6,9 @@
     <title>NouriSync - Home</title>
     <link rel="stylesheet" href="..\static\styles\style.css">
     <script src="../static/javascript/index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
@@ -13,10 +16,10 @@
             <h3 class="logo-text">NouriSync</h3>
             <ul class="nav-list">
                 <li class="nav-item selected">
-                    Home
+                    <a href="/" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item unselected">
-                    About
+                    <a href="/" class="nav-link">About</a>
                 </li>
             </ul>
         </div>
@@ -25,24 +28,15 @@
         <div class="main-content">
             <div class="welcome-info">
                 <div class="welcome-left">
-                    <h1>Welcome back, User.</h1>
-                    <ul class="welcome-options">
-                        <li class="new-log">
-                            <a href="/questionnaire">
+                    <h1>Welcome back,<br> User.</h1>
+                    <a href="/questionnaire">
                                 <button>New Log</button>
-                            </a>
-                    </li>
-                        <li class="export-log">
-                            <a href="/export">
-                                <button>Export Log</button>
-                            </a>
-                        </li>
-                    </ul>
+                    </a>
                 </div>
                 <div class="streak-info">
                     <div class="streak-info-top">
                         <img src="../static/fire-logo-streak.png" class="fire-streak-image">
-                        <h3 class="streak-number">3</h3>
+                        <b>3</b>
                     </div>
                     <div class="streak-info-middle">3 day streak! You got this!</div>
                     <!-- <div class="streak-info-bottom">
