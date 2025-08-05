@@ -160,6 +160,7 @@ def post_patient_answers():
     Handle patient form submission - store temporarily in memory
     """
     form_answers = request.form
+    print(form_answers)
     try:
         # Get all form data
         patient_data = {
@@ -180,7 +181,7 @@ def post_patient_answers():
         
         # For now, redirect back to questionnaire
         # In a real app, you might want to show a "waiting for caregiver" message
-        return redirect("/questionnaire")
+        return redirect("/questionnaire?phase=2")
         
     except Exception as e:
         print(f"Error processing patient data: {e}")
@@ -265,6 +266,12 @@ def get_logs():
     except Exception as e:
         print(f"Error retrieving logs: {e}")
         return jsonify({"error": "Failed to retrieve logs"}), 500
+
+@app.route("/date", methods=['GET'])
+
+def get_date_format():
+    moment = Moment(app)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)
