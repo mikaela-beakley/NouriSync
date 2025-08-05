@@ -1,1 +1,197 @@
 console.log("questionnaire.js loaded")
+
+const mainQuestionnaireContent = document.getElementById("main-questionnaire-content");
+
+function submitForm(form, path) {
+    let http = new XMLHttpRequest();
+    http.open('POST', path, true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    let params = new FormData(form);
+    http.send(params);
+    http.onload = function() {
+        alert(http.responseText);
+    }
+}
+
+function createPatientBlock() {
+    return `<div class="questionnaire-form-caregiver form-page">
+            <h1>Patient Questions</h1>
+            <form action="/questionnaire-patient-info" method="post" class="questionnaire caregiver-questionnaire">
+                <div class="scale-question">
+                    <p>How are you feeling today?</p>
+                    <input type="radio" name="scale-question-1" id="strongly-disagree" value=0>
+                    <label for="strongly-disagree">Very Sad</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="somewhat-disagree" value=1>
+                    <label for="somewhat-disagree">Somewhat Sad</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="neutral" value=2>
+                    <label for="neutral">Neutral</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="somewhat-agree" value=3>
+                    <label for="somewhat-agree">Somewhat Happy</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="strongly-agree" value=4>
+                    <label for="strongly-agree">Very Happy</label>
+                </div>
+                <br>
+                <br>
+                <div class="scale-question">
+                    <p>How supported do you feel by the people around you this week?</p>
+                    <input type="radio" name="scale-question-2" id="strongly-disagree" value=0>
+                    <label for="strongly-disagree">Not at all supported</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-disagree" value=1>
+                    <label for="somewhat-disagree">A little supported</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="neutral" value=2>
+                    <label for="neutral">Neutral</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-agree" value=3>
+                    <label for="somewhat-agree">Mostly supported</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="strongly-agree" value=4>
+                    <label for="strongly-agree">Completely supported</label>
+                </div>
+                <br>
+                <br>
+                <div class="open-question">
+                    <label for="tough-time">Please describe a time during the day that felt especially tough.</label>
+                    <br>
+                    <input type="text" id="tough-time" name="tough-time" value="" size="30">
+                </div>
+                <br>
+                <br>
+                <div class="open-question">
+                    <label for="something-feels-safer">Please describe something that makes you feel safer when things get hard.</label>
+                    <br>
+                    <input type="text" id="something-feels-safer" name="something-feels-safer" value="" size="30">
+                </div>
+                <br>
+                <br>
+                <div class="open-question">
+                    <label for="tough-time">Please describe something that your caregiver does that feels helpful.</label>
+                    <br>
+                    <input type="text" id="caregiver-helpful" name="caregiver-helpful" value="" size="30">
+                </div>
+                <br>
+                <br>
+                <div class="open-question">
+                    <label for="tough-time">Please describe something that you want your caregiver to work on.</label>
+                    <br>
+                    <input type="text" id="caregiver-unhelpful" name="caregiver-unhelpful" value="" size="30">
+                </div>
+                <br>
+                <br>
+                <div class="slider-question">
+                    <label for="recover-ready">How ready do you feel to continue working on your recovery?</label>
+                    <br>
+                    Not ready
+                    <input type="range" id="recover-ready" name="recover-ready" min="0" max="10">
+                    Let's go!
+                </div>
+                <br>
+                <br>
+                <label for="comments">Is there anything you would like to privately note for the journal?</label>
+                <br>
+                <input type="text" id="comments" name="comments" value="" size=30>
+                <br>
+                <br>
+                <input type="submit" value="I'm done">
+            </form>
+        </div>`
+}
+
+function createCaregiverBlock() {
+    return `<div class="questionnaire-form-caregiver">
+            <h1>Caregiver Questions</h1>
+            <form action="/questionnaire-caregiver-info" method="post" class="questionnaire caregiver-questionnaire">
+                <div class="scale-question">
+                    <p>The patient ate their required meals</p>
+                    <input type="radio" name="scale-question-1" id="strongly-disagree" value=0>
+                    <label for="strongly-disagree">Strongly Disagree</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="somewhat-disagree" value=1>
+                    <label for="somewhat-disagree">Somewhat Disagree</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="neutral" value=2>
+                    <label for="neutral">Neutral</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="somewhat-agree" value=3>
+                    <label for="somewhat-agree">Somewhat Agree</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="strongly-agree" value=4>
+                    <label for="strongly-agree">Strongly Agree</label>
+                </div>
+                <br>
+                <br>
+                <div class="radio-question">
+                    <p>What do you think your loved one might need from you right now?</p>
+                    <input type="radio" name="scale-question-2" id="strongly-disagree" value="Space and patience">
+                    <label for="strongly-disagree">Space and patience</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-disagree" value="Encouragement and presence">
+                    <label for="somewhat-disagree">Encouragement and presence</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="neutral" value="A small positive distraction">
+                    <label for="neutral">A small positive distraction</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-agree" value="I'm not sure">
+                    <label for="somewhat-agree">I'm not sure</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="strongly-agree" value="Other">
+                    <label for="strongly-agree">Other</label>
+                </div>
+                <br>
+                <br>
+                <label for="comments">Is there anything you would like to privately note for the journal?</label><br>
+                <input type="text" id="comments" name="comments" value="" size=30>
+                <br>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>`;
+}
+
+function switchToPatient() {
+    console.log("Switchin");
+    renderBlock(createPatientBlock());
+}
+
+function switchToCaregiver(e) {
+    submitForm(Document.getElementById("patient-form", "/questionnaire-patient-info"));
+    renderBlock(createCaregiverBlock());
+}
+
+function renderBlock(block) {
+    mainQuestionnaireContent.innerHTML = block;
+}
+
+function createIntroBlock() {
+    date = Date().split(' ');
+    date = date[0] + ', ' + date[1] + " " + date[2];
+    return `<div class="form-page intro-block">
+            <h2>Daily Check-In</h2>
+            <p>${date}</p>
+            <img src="../static/family-img.png" alt="">
+            <h1>Let's answer today's questions together</h1>
+            <p class="questionnaire-intro-subtitle">You will answer first, then pass the phone to your caregiver.</p>
+            <a href="/questionnaire?phase=1"><button class="questionnaire-begin-button">Begin</button></a>        </div>`
+}
+
+let searchParams = new URLSearchParams(window.location.href.split('?')[1])
+
+console.log(searchParams.get('phase'))
+
+switch(searchParams.get('phase')) {
+    case '1':
+        console.log('case 1')
+        renderBlock(createPatientBlock());
+        break;
+    case '2':
+        renderBlock(createCaregiverBlock());
+        break;
+    default:
+        renderBlock(createIntroBlock());
+        break;
+}
