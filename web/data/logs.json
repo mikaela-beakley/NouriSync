@@ -72,5 +72,48 @@
         }
       ]
     }
+  },
+  {
+    "id": 3,
+    "timestamp": "08/05/2025 - 01:17 PM",
+    "patient_input": {
+      "scale-question-1": "4",
+      "scale-question-2": "1",
+      "tough-time": "asfasfd",
+      "something-feels-safer": "hgfhfgh",
+      "caregiver-helpful": "klhjgfbdv",
+      "caregiver-unhelpful": "asdhsdf",
+      "recover-ready": "10",
+      "comments": "dd"
+    },
+    "caregiver_input": {
+      "scale-question-1": "1",
+      "scale-question-2": "A small positive distraction",
+      "comments": "asd"
+    },
+    "ai_response": {
+      "risk_score": "high",
+      "risk_factors": [
+        "Low support feeling",
+        "Meal completion < 50%"
+      ],
+      "plan": [
+        {
+          "step": "Full meal supervision (≥30 min).",
+          "rationale": "Reduces post-meal purge attempts.",
+          "source": "Lock et al., *J Adol Health*, 2020"
+        },
+        {
+          "step": "No bathroom alone for 1 h after meals.",
+          "rationale": "Limits compensatory behaviours.",
+          "source": "NICE Guideline NG69"
+        },
+        {
+          "step": "Contact clinician if HR < 50 bpm.",
+          "rationale": "Bradycardia threshold for ED readmit.",
+          "source": "SAHM Position Paper, 2018"
+        }
+      ]
+    }
   }
 ]
