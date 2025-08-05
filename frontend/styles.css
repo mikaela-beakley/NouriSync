@@ -5,19 +5,26 @@
 }
 
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: #f5f8fa;
-  color: #2c3e50;
+  color: #101419;
   padding: 1rem;
 }
 
 /* Nav */
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
-  border-bottom: 1px solid #dcdfe3;
+  gap: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  margin: 1.5rem auto 2.5rem;
+  background: #ffffff;
+  border: 1px solid #e0e5ec;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  width: 900px;
+  min-height: 50px;
+  font-size: 0.95rem;
 }
 
 .logo {
@@ -30,13 +37,53 @@ nav {
   list-style: none;
   display: flex;
   gap: 1rem;
+  margin-left: auto;
 }
 
-.nav-links a {
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.logo .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #627f5a;
+  display: inline-block;
+}
+
+/* Pill navigation styling */
+.pill-nav {
+  background-color: transparent;
+  border-radius: 24px;
+  padding: 0;
+  gap: 0;
+}
+
+.pill-nav li {
+  list-style: none;
+}
+
+.pill-nav a {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 24px;
   text-decoration: none;
-  color: #3c3c3c;
+  color: #4a4a4a;
   font-weight: 500;
 }
+
+.pill-nav li.active a {
+  background-color: #ebebeb;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.pill-nav a:hover {
+  background-color: #ffffff;
+}
+
 
 /* Layout */
 main {
@@ -50,40 +97,43 @@ main {
   justify-content: space-between;
   align-items: flex-start;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: -3.5rem;
 }
 
 #welcome h1 {
-  font-size: 1.75rem;
+  font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.3;
+  margin-top: 30px;
+  font-family: 'Inkut Antiqua', 'Times New Roman', Times, serif;
 }
 
 #welcome span {
-  color: #2f80ed;
+  color: #101720;
 }
 
 /* Streak Widget */
 .streak-box {
   background: #ffffff;
   border: 1px solid #e0e5ec;
-  border-radius: 12px;
+  border-radius: 25px;
   padding: 1rem;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  min-width: 180px;
+  min-width: 300px;
+  min-height: 200px;
 }
 
 .streak-number {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #27ae60;
+  color: #fc8200;
 }
 
 .streak-message {
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: 0.5rem 0;
-  color: #555;
+  color:  #101419;
 }
 
 .streak-days {
@@ -114,7 +164,14 @@ main {
 #actions {
   display: flex;
   gap: 0.75rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 0.6rem 0.6rem;
+  background: #ffffff;
+  border: 1px solid #e0e5ec;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  width: fit-content;
+  align-items: center;
 }
 
 button {
@@ -131,56 +188,267 @@ button:hover {
   background-color: #f0f0f0;
 }
 
-/* Daily Logs */
-.daily-log {
-  background: white;
-  border-radius: 12px;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
-  border: 1px solid #e3e7ec;
+/* Buttons within the actions pill */
+#actions button {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  color: #101419;
+  font-weight: 600;
 }
 
-.daily-log header {
+#actions button:hover {
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+/* Daily Logs - Filing Cabinet Style */
+.daily-log {
+  margin-bottom: 0.5rem;
+  position: relative;
+  background: white;
+  border: 1px solid #e3e7ec;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Header strip - darker background */
+.log-header {
+  background: #e5e5e5;
+  border-bottom: 1px solid #e3e7ec;
+  padding: 0.25rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.log-header h2 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #101419;
+}
+
+.log-menu {
+  font-size: 1.25rem;
+  color: #666;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.log-menu:hover {
+  color: #101419;
+}
+
+/* Content tab - horizontal layout */
+.log-tab {
+  background: white;
+  padding: 1rem 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.log-tab:hover {
+  background: #f8f9fa;
+}
+
+.tab-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.expand-arrow {
+  font-size: 1.2rem;
+  color: #666;
+  transition: transform 0.2s ease;
+  margin-left: 1rem;
+}
+
+.daily-log:not(.collapsed) .expand-arrow {
+  transform: rotate(180deg);
+}
+
+/* Risk level pill with stroke */
 .risk-level {
-  padding: 0.2rem 0.5rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: bold;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid;
+  white-space: nowrap;
 }
 
 .risk-level.high {
   background-color: #ffebee;
   color: #c62828;
+  border-color: #c62828;
 }
 
 .risk-level.medium {
-  background-color: #fffeeb;
+  background-color: #fff8e1;
   color: #d6b600;
+  border-color: #d6b600;
 }
 
 .risk-level.low {
-  background-color: #f2ffeb;
+  background-color: #e8f5e8;
   color: #00b34d;
+  border-color: #00b34d;
 }
 
 .log-summary {
-  margin: 0.5rem 0 1rem;
-  font-size: 0.95rem;
-  color: #333;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+  flex: 1;
 }
 
-details summary {
-  cursor: pointer;
+/* Expanded details */
+.log-details {
+  background: #ffffff;
+  border-top: 1px solid #e3e7ec;
+  padding: 1.5rem;
+}
+
+.daily-log.collapsed .log-details {
+  display: none;
+}
+
+.log-details h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #101419;
+}
+
+.plan-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.plan-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.plan-item input[type="checkbox"] {
+  margin-top: 0.2rem;
+  width: 16px;
+  height: 16px;
+}
+
+.plan-item label {
+  flex: 1;
   font-weight: 500;
+  cursor: pointer;
 }
 
-ul {
-  margin-top: 0.5rem;
-  padding-left: 1.25rem;
+.plan-note {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.8rem;
+  color: #666;
+  text-align: right;
+  max-width: 300px;
+}
+
+.note-tag {
+  background: #e9ecef;
+  padding: 0.1rem 0.4rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  margin-left: 0.2rem;
+  color: #495057;
+}
+
+/* Icon Buttons and Enhancements */
+button#risk-status {
+  background-color: #fff5e5;
+  border-color: #f7d9a5;
+}
+
+button#risk-status:hover {
+  background-color: #ffefd2;
+}
+
+/* Risk status button within actions pill */
+#actions button#risk-status {
+  background-color: #FFC943;
+  border: 1px solid #E8A302;
+  position: relative;
+  padding-left: 2rem;
+}
+
+#actions button#risk-status::before {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #E8A302;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+#actions button#risk-status:hover {
+  background-color: #ffefd2;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+
+.circle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Circle button within actions pill */
+#actions .circle-btn {
+  background-color: #2f80ed;
+  border: 1px solid #1a73e8;
+  color: white;
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+}
+
+#actions .circle-btn:hover {
+  background-color: #1a73e8;
+  border-color: #1557b0;
+}
+
+.streak-flame {
+  width: 40px;
+  height: auto;
+  margin-bottom: 0.25rem;
+}
+
+.log-menu {
+  font-size: 1.25rem;
+  color: #8e8e8e;
+  cursor: pointer;
+  margin-left: 0.5rem;
 }

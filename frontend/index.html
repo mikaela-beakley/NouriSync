@@ -8,9 +8,9 @@
 </head>
 <body>
   <nav>
-    <div class="logo">NOURISYNC</div>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
+    <div class="logo"><span class="dot"></span>NOURISYNC</div>
+    <ul class="nav-links pill-nav">
+      <li class="active"><a href="#">Home</a></li>
       <li><a href="#">About</a></li>
     </ul>
   </nav>
@@ -18,14 +18,16 @@
   <main>
     <div class="welcome-row">
       <section id="welcome">
-        <h1>Welcome back,<br><span id="username">Sean-Manuel</span></h1>
+        <h1>Welcome back,<br><span id="username">Sean-Manuel.</span></h1>
       </section>
-
       <section id="streak-widget">
-        <div class="streak-box">
-          <div class="streak-number" id="streak-count">3</div>
-          <p class="streak-message">3&nbsp;day streak! You got this!</p>
-          <div class="streak-days">
+        <div class="streak-box" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            <img src="images/streak-fire.png" alt="Streak flame" class="streak-flame"/>
+            <div class="streak-number" id="streak-count">3</div>
+          </div>
+          <p class="streak-message" style="text-align: center; width: 100%;">3&nbsp;day streak! You got this!</p>
+          <div class="streak-days" style="justify-content: center; width: 100%;">
             <span class="day completed">S</span>
             <span class="day completed">M</span>
             <span class="day completed">T</span>
@@ -39,27 +41,76 @@
     </div>
 
     <section id="actions">
-      <button id="risk-status">Monitor</button>
+      <button id="risk-status">⚠ Monitor</button>
       <button id="export-btn">Export Log</button>
+      <button id="new-log-btn">New Log</button>
     </section>
 
     <section id="daily-logs">
-      <article class="daily-log">
-        <header>
+      <article class="daily-log high-risk">
+        <div class="log-header">
           <h2>Thursday, July 31</h2>
-          <span class="risk-level high">High Risk</span>
-        </header>
-        <p class="log-summary">Low meal completion, purge urge reported.</p>
-        <details>
-          <summary>View plan</summary>
-          <ul>
-            <li>Full meal supervision (30&nbsp;min)</li>
-            <li>No bathroom alone for 1&nbsp;h after meals</li>
-            <li>Contact clinician if HR &lt; 50&nbsp;bpm</li>
-          </ul>
-        </details>
+          <span class="log-menu">⋮</span>
+        </div>
+        <div class="log-tab" onclick="toggleLog(this)">
+          <div class="tab-content">
+            <span class="risk-level high">High Risk</span>
+            <span class="log-summary">Low meal completion, purge urge reported</span>
+          </div>
+          <span class="expand-arrow">▼</span>
+        </div>
+        <div class="log-details">
+          <h3>Today's Plan</h3>
+          <div class="plan-items">
+            <div class="plan-item">
+              <input type="checkbox" id="supervision" checked>
+              <label for="supervision">Full meal supervision (≥30 min)</label>
+              <div class="plan-note">Reduces post-meal purge attempts.<br><span class="note-tag">CDC</span></div>
+            </div>
+            <div class="plan-item">
+              <input type="checkbox" id="bathroom">
+              <label for="bathroom">No bathroom alone for 1hr after meals</label>
+              <div class="plan-note">Limits compensatory behaviors.<br><span class="note-tag">Lock et all</span> <span class="note-tag">Mayo Clinic</span></div>
+            </div>
+            <div class="plan-item">
+              <input type="checkbox" id="clinician">
+              <label for="clinician">Contact clinician if HR < 50 bpm</label>
+              <div class="plan-note">Threshold for ED readmit.<br><span class="note-tag">Mojeeb</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+      
+      <article class="daily-log low-risk collapsed">
+        <div class="log-header">
+          <h2>Wednesday, July 30</h2>
+          <span class="log-menu">⋮</span>
+        </div>
+        <div class="log-tab" onclick="toggleLog(this)">
+          <div class="tab-content">
+            <span class="risk-level low">Low Risk</span>
+            <span class="log-summary">Stable weight, calm mood, no urges</span>
+          </div>
+          <span class="expand-arrow">▼</span>
+        </div>
+        <div class="log-details">
+          <h3>Today's Plan</h3>
+          <div class="plan-items">
+            <div class="plan-item">
+              <input type="checkbox" id="meals-wed" checked>
+              <label for="meals-wed">Regular meal schedule maintained</label>
+            </div>
+          </div>
+        </div>
       </article>
     </section>
   </main>
+
+  <script>
+    function toggleLog(tabElement) {
+      const logEntry = tabElement.closest('.daily-log');
+      logEntry.classList.toggle('collapsed');
+    }
+  </script>
 </body>
 </html>
