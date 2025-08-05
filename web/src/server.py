@@ -17,7 +17,6 @@ def test():
 @app.route("/questionnaire-caregiver-info", methods=['GET', 'POST'])
 
 def post_caregiver_answers():
-    print(request.form)
     form_answers = request.form
     print(form_answers['scale-question-1'])
     print(form_answers['scale-question-2'])
