@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "timestamp": "08/04/2025 - 10:15 PM",
+    "patient_input": {
+      "scale-question-1": "4",
+      "scale-question-2": "4",
+      "tough-time": "asd",
+      "something-feels-safer": "dasd",
+      "caregiver-helpful": "asd",
+      "caregiver-unhelpful": "fasd",
+      "recover-ready": "10",
+      "comments": "Nope"
+    },
+    "caregiver_input": {
+      "scale-question-1": "4",
+      "scale-question-2": "Space and patience",
+      "comments": "Nope"
+    },
+    "ai_response": {
+      "risk_score": "low",
+      "risk_factors": [
+        "Regular monitoring indicated"
+      ],
+      "plan": [
+        {
+          "step": "Continue regular meal support.",
+          "rationale": "Maintain positive momentum in recovery.",
+          "source": "Recovery-oriented care principles"
+        },
+        {
+          "step": "Celebrate small wins together.",
+          "rationale": "Positive reinforcement enhances motivation.",
+          "source": "Behavioral therapy principles"
+        }
+      ]
+    }
+  }
+]
