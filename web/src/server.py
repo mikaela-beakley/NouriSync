@@ -2,106 +2,119 @@ from flask import Flask, render_template, request, redirect, jsonify
 import json
 import os
 from datetime import datetime
+from DailyLogFormatter import DailyFormatter
+from DailyLogAI import DailyLogAI
 
 app = Flask(__name__)
 
 # this is where we will hold the patient data for now
 temp_patient_data = {}
 
-def llm_call(data):
+def llm_call(data, debug):
     """
     fake LLM function that returns structured response
     this will connect to the LLM jay working on + Jas model too
     """
-    # Mock response based on the input data
-    patient_data = data.get('patient_input', {})
-    caregiver_data = data.get('caregiver_input', {})
-    
-    # Simple risk assessment based on form responses
-    risk_score = "low"
-    risk_factors = []
-    
-    # Check patient mood (scale-question-1)
-    patient_mood = int(patient_data.get('scale-question-1', 2))
-    if patient_mood <= 1:
-        risk_score = "medium"
-        risk_factors.append("Low mood reported")
-    
-    # Check patient support feeling (scale-question-2)
-    patient_support = int(patient_data.get('scale-question-2', 2))
-    if patient_support <= 1:
-        risk_score = "medium"
-        risk_factors.append("Low support feeling")
-    
-    # Check recovery readiness
-    recovery_ready = int(patient_data.get('recover-ready', 5))
-    if recovery_ready <= 3:
-        risk_score = "medium"
-        risk_factors.append("Low recovery motivation")
-    
-    # Check caregiver meal observation
-    meals_eaten = int(caregiver_data.get('scale-question-1', 2))
-    if meals_eaten <= 1:
-        risk_score = "high"
-        risk_factors.append("Meal completion < 50%")
-    
-    # If no specific risk factors, add default
-    if not risk_factors:
-        risk_factors.append("Regular monitoring indicated")
-    
-    # Generate plan based on risk assessment
-    plan = []
-    
-    if risk_score == "high":
-        plan.extend([
-            {
-                "step": "Full meal supervision (≥30 min).",
-                "rationale": "Reduces post-meal purge attempts.",
-                "source": "Lock et al., *J Adol Health*, 2020"
-            },
-            {
-                "step": "No bathroom alone for 1 h after meals.",
-                "rationale": "Limits compensatory behaviours.",
-                "source": "NICE Guideline NG69"
-            },
-            {
-                "step": "Contact clinician if HR < 50 bpm.",
-                "rationale": "Bradycardia threshold for ED readmit.",
-                "source": "SAHM Position Paper, 2018"
-            }
-        ])
-    elif risk_score == "medium":
-        plan.extend([
-            {
-                "step": "Check in every 2 hours during meal times.",
-                "rationale": "Regular monitoring prevents escalation.",
-                "source": "FBT Guidelines, 2019"
-            },
-            {
-                "step": "Encourage engagement in planned activities.",
-                "rationale": "Structured activities reduce rumination.",
-                "source": "CBT-E Manual, 2016"
-            }
-        ])
+
+    if debug == True:
+        #Mock response based on the input data
+        patient_data = data.get('patient_input', {})
+        caregiver_data = data.get('caregiver_input', {})
+
+        # Simple risk assessment based on form responses
+        risk_score = "low"
+        risk_factors = []
+        
+        # Check patient mood (scale-question-1)
+        patient_mood = int(patient_data.get('scale-question-1', 2))
+        if patient_mood <= 1:
+            risk_score = "medium"
+            risk_factors.append("Low mood reported")
+        
+        # Check patient support feeling (scale-question-2)
+        patient_support = int(patient_data.get('scale-question-2', 2))
+        if patient_support <= 1:
+            risk_score = "medium"
+            risk_factors.append("Low support feeling")
+        
+        # Check recovery readiness
+        recovery_ready = int(patient_data.get('recover-ready', 5))
+        if recovery_ready <= 3:
+            risk_score = "medium"
+            risk_factors.append("Low recovery motivation")
+        
+        # Check caregiver meal observation
+        meals_eaten = int(caregiver_data.get('scale-question-1', 2))
+        if meals_eaten <= 1:
+            risk_score = "high"
+            risk_factors.append("Meal completion < 50%")
+        
+        # If no specific risk factors, add default
+        if not risk_factors:
+            risk_factors.append("Regular monitoring indicated")
+        
+        # Generate plan based on risk assessment
+        plan = []
+        
+        if risk_score == "high":
+            plan.extend([
+                {
+                    "step": "Full meal supervision (≥30 min).",
+                    "rationale": "Reduces post-meal purge attempts.",
+                    "source": "Lock et al., *J Adol Health*, 2020"
+                },
+                {
+                    "step": "No bathroom alone for 1 h after meals.",
+                    "rationale": "Limits compensatory behaviours.",
+                    "source": "NICE Guideline NG69"
+                },
+                {
+                    "step": "Contact clinician if HR < 50 bpm.",
+                    "rationale": "Bradycardia threshold for ED readmit.",
+                    "source": "SAHM Position Paper, 2018"
+                }
+            ])
+        elif risk_score == "medium":
+            plan.extend([
+                {
+                    "step": "Check in every 2 hours during meal times.",
+                    "rationale": "Regular monitoring prevents escalation.",
+                    "source": "FBT Guidelines, 2019"
+                },
+                {
+                    "step": "Encourage engagement in planned activities.",
+                    "rationale": "Structured activities reduce rumination.",
+                    "source": "CBT-E Manual, 2016"
+                }
+            ])
+        else:
+            plan.extend([
+                {
+                    "step": "Continue regular meal support.",
+                    "rationale": "Maintain positive momentum in recovery.",
+                    "source": "Recovery-oriented care principles"
+                },
+                {
+                    "step": "Celebrate small wins together.",
+                    "rationale": "Positive reinforcement enhances motivation.",
+                    "source": "Behavioral therapy principles"
+                }
+            ])
+        
+        
+        return {
+            "risk_score": risk_score,
+            "risk_factors": risk_factors,
+            "plan": plan
+        }
     else:
-        plan.extend([
-            {
-                "step": "Continue regular meal support.",
-                "rationale": "Maintain positive momentum in recovery.",
-                "source": "Recovery-oriented care principles"
-            },
-            {
-                "step": "Celebrate small wins together.",
-                "rationale": "Positive reinforcement enhances motivation.",
-                "source": "Behavioral therapy principles"
-            }
-        ])
-    
-    return {
-        "risk_score": risk_score,
-        "risk_factors": risk_factors,
-        "plan": plan
-    }
+        #real llm
+        Formatter = DailyFormatter(data)
+        combined = Formatter.format()
+        
+        DailyAI = DailyLogAI()
+        response = DailyAI.queryLLM(combined)
+        return json.loads(response)
 
 def load_logs():
     """load existing logs from logs.json file"""
@@ -150,8 +163,8 @@ def post_patient_answers():
     try:
         # Get all form data
         patient_data = {
-            'scale-question-1': form_answers.get('scale-question-1'),
-            'scale-question-2': form_answers.get('scale-question-2'),
+            'how-are-you-feeling': form_answers.get('scale-question-1'),
+            'how-supported-do-you-feel': form_answers.get('scale-question-2'),
             'tough-time': form_answers.get('tough-time', ''),
             'something-feels-safer': form_answers.get('something-feels-safer', ''),
             'caregiver-helpful': form_answers.get('caregiver-helpful', ''),
@@ -183,8 +196,8 @@ def post_caregiver_answers():
     try:
         # Get caregiver form data
         caregiver_data = {
-            'scale-question-1': form_answers.get('scale-question-1'),
-            'scale-question-2': form_answers.get('scale-question-2'),
+            'patient-meal-completion': form_answers.get('scale-question-1'),
+            'loved-one-needs': form_answers.get('scale-question-2'),
             'comments': form_answers.get('comments', '')
         }
         
@@ -206,7 +219,9 @@ def post_caregiver_answers():
         logs = load_logs()
         
         # Call LLM function
-        ai_response = llm_call(combined_data)
+
+        #FALSE for real LLM, TRUE for debug test
+        ai_response = llm_call(combined_data, False)
         
         # Create complete log entry
         timestamp = datetime.now().strftime("%m/%d/%Y - %I:%M %p")

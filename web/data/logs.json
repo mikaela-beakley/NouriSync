@@ -1,74 +1,38 @@
 [
   {
     "id": 1,
-    "timestamp": "08/04/2025 - 10:41 PM",
+    "timestamp": "08/05/2025 - 05:43 PM",
     "patient_input": {
-      "scale-question-1": "4",
-      "scale-question-2": "4",
-      "tough-time": "asdsd",
-      "something-feels-safer": "asdasd",
-      "caregiver-helpful": "asdasdf",
-      "caregiver-unhelpful": "dasf",
-      "recover-ready": "10",
-      "comments": "d"
+      "how-are-you-feeling": "0",
+      "how-supported-do-you-feel": "0",
+      "tough-time": "EVERYTHING",
+      "something-feels-safer": "nothing NOTHINGGGGG",
+      "caregiver-helpful": "ABSOUTELY TNJOHIGN",
+      "caregiver-unhelpful": "I AHTE THEM SO MUCH EVERYTHING",
+      "recover-ready": "0",
+      "comments": "I HATE VEERYTHING I HATE IT ALL"
     },
     "caregiver_input": {
-      "scale-question-1": "4",
-      "scale-question-2": "Encouragement and presence",
-      "comments": "ff"
+      "patient-meal-completion": "0",
+      "loved-one-needs": "I'm not sure",
+      "comments": "I HATE VEERYTHING I HATE IT ALL"
     },
     "ai_response": {
-      "risk_score": "low",
+      "risk_score": "high",
       "risk_factors": [
-        "Regular monitoring indicated"
+        "The patient's current feeling is 'Very Sad', which may indicate a negative emotional state that could potentially trigger relapse.",
+        "The patient feels 'Not at all supported', suggesting a lack of social support, which is a known risk factor for relapse in eating disorders."
       ],
       "plan": [
         {
-          "step": "Continue regular meal support.",
-          "rationale": "Maintain positive momentum in recovery.",
-          "source": "Recovery-oriented care principles"
+          "step": "Increase frequency and intensity of support sessions with a mental health professional.",
+          "rationale": "This can help address the patient's negative emotions and provide a safe space for them to express their feelings.",
+          "source": "Best practice principles for managing eating disorders"
         },
         {
-          "step": "Celebrate small wins together.",
-          "rationale": "Positive reinforcement enhances motivation.",
-          "source": "Behavioral therapy principles"
-        }
-      ]
-    }
-  },
-  {
-    "id": 2,
-    "timestamp": "08/04/2025 - 10:45 PM",
-    "patient_input": {
-      "scale-question-1": "4",
-      "scale-question-2": "3",
-      "tough-time": "d",
-      "something-feels-safer": "ddd",
-      "caregiver-helpful": "ddd",
-      "caregiver-unhelpful": "dd",
-      "recover-ready": "10",
-      "comments": "asd"
-    },
-    "caregiver_input": {
-      "scale-question-1": "2",
-      "scale-question-2": "Encouragement and presence",
-      "comments": "ddd"
-    },
-    "ai_response": {
-      "risk_score": "low",
-      "risk_factors": [
-        "Regular monitoring indicated"
-      ],
-      "plan": [
-        {
-          "step": "Continue regular meal support.",
-          "rationale": "Maintain positive momentum in recovery.",
-          "source": "Recovery-oriented care principles"
-        },
-        {
-          "step": "Celebrate small wins together.",
-          "rationale": "Positive reinforcement enhances motivation.",
-          "source": "Behavioral therapy principles"
+          "step": "Encourage the involvement of family and friends in the patient's recovery process.",
+          "rationale": "Social support is crucial in maintaining recovery from eating disorders. Involving loved ones can help provide additional emotional support and accountability.",
+          "source": "Best practice principles for managing eating disorders"
         }
       ]
     }

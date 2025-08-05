@@ -46,20 +46,32 @@ def run_qa_loop(docs, index, embedder, generate):
         _, I = index.search(query_vec, k=3)
         context = "\n\n".join([docs[i] for i in I[0]])
 
-        prompt = f"""[INST] You are a clinical assistant AI that helps analyze outpatient eating behaviors for risk of relapse from eating disorders. Below is a patient's weekly eating habit log. Use the context below (from medical literature) to assess relapse risk, identify any red flags, and provide 1–2 suggestions for intervention. If the context doesn’t apply, say "Not enough information."
+        prompt = f"""[INST] You are a clinical assistant AI that helps analyze outpatient eating behaviors for risk of relapse from eating disorders. Below is a patient's feelings and emotions for the current day, alongside their caregiver's report on the patient's eating habits. Use the context below (from medical literature) to assess relapse risk, identify any red flags, and provide 1–2 suggestions for intervention. If any of the fields are left blank, ignore that field. If the context doesn’t apply, say "Not enough information."
 
-Context:
-{context}  # ←  retrieved chunks from PDFs
+        Context:
+        {context}  # ←  retrieved chunks from PDFs
 
-Patient log:
-{query}
+        Patient log:
+        {query}
 
-Output format:
-- Risk level: [Low / Moderate / High]
-- Key observations: [summarized flags]
-- Suggestions: [evidence-based ideas]
-[/INST]
-"""
+        Respond only in valid JSON with this exact format:
+        {
+            "risk_score": "low" | "moderate" | "high",
+            "risk_factors": "list of 1–3 short points of observation explaining reasoning behind risk score",
+            "plan": [
+                {
+                    "step": "Actionable recommendation.",
+                    "rationale": "Brief explanation.",
+                    "source": "Evidence-based source or principle."
+                },
+                ...
+            ]
+        }
+
+        Do not include ANY extra explanation. ONLY output valid JSON. [/INST]
+        [/INST]
+
+        """
 
         response = generate(prompt, max_new_tokens=500, do_sample=False)[0]['generated_text']
         print("\n", response.split("[/INST]")[-1].strip())
