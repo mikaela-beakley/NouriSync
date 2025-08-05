@@ -8,7 +8,7 @@
 }
 
 body {
-    font-family: "Inter", sans-serif;
+    font-family: "Baloo 2", cursive;
     background-color: var(--bg-main);
 }
 
@@ -22,27 +22,36 @@ body {
     border-radius: 15px;
 }
 
-.nav-list {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    align-items: center;
-    list-style: none;
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  gap: 50rem;
 }
 
-.nav-item {
-    padding: 0.5em;
-    
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
 }
 
-.nav-item.selected {
-    background-color: var(--selected);
-    border-radius: 15px;
+.nav-links a {
+  text-decoration: none;
+  color: #3c3c3c;
+  font-weight: 500;
 }
 
 .nav-link {
-    text-decoration: none;
-    color: #000000;
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  background-color: rgb(255, 249, 213);
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  background-color: rgb(255, 247, 199);
 }
 
 .welcome-info {
@@ -67,6 +76,7 @@ body {
 
 .new-log-button {
     width: 100%;
+    font-family: 'Baloo 2', cursive;
     border: 2px solid black;
     background-color: var(--accent-primary);
     font-size: 1.5em;
@@ -81,19 +91,19 @@ body {
 }
 
 .streak-info {
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
+    background: var(--bg-secondary);
+    order: 1px solid #e0e5ec;
+    border-radius: 12px;
+    padding: 4rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    min-width: 180px;
 }
 
 .streak-info-top {
-    display: flex;
-    flex: 2;
-    align-items: center;
-    justify-content: center;
-    font-size: 5em;
-    padding-right: .3em;
-    color: #b8301a;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #27ae60;
 }
 
 .fire-streak-image {
@@ -102,8 +112,132 @@ body {
 }
 
 .streak-info-bottom {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.streak-days {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.day {
+  background-color: #e0e0e0;
+  color: #333;
+  font-weight: bold;
+  font-size: 0.75rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  line-height: 24px;
+  text-align: center;
+}
+
+.day.completed {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Dynamic log container */
+.logs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Individual log card */
+.log {
+  background: white;
+  border-radius: 12px;
+  margin-top: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  border: 1px solid #e3e7ec;
+}
+
+/* Log top section */
+.log-top-info h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+/* Risk display styling */
+.risk-indicator {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.risk-indicator.low-risk {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.risk-indicator.medium-risk {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.risk-indicator.high-risk {
+  background: #ffebee;
+  color: #c62828;
+}
+
+/* Bottom log info */
+.log-bottom-info p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Collapsible button */
+.collapsable {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.collapsable svg {
+  transition: transform 0.3s ease;
+}
+
+/* Expanded content */
+.log-content {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.log-content h5 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.log-plan {
+  padding-left: 1.25rem;
+}
+
+.log-plan li {
+  margin-bottom: 1rem;
+}
+
+.loading-message,
+.no-logs-message,
+.error-message {
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
 }
