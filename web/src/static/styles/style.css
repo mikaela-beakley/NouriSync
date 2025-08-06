@@ -53,7 +53,7 @@ a {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 2 em;
   padding-left: 60em;
 }
 
@@ -75,11 +75,6 @@ a {
 .nav-link:hover {
   text-decoration: none;
   background-color: #cab8b6;
-}
-
-.fa-circle-user {
-    width: 17px;
-    height: 17px;
 }
 
 .welcome-info {
