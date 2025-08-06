@@ -110,3 +110,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Make toggleLogContent available globally for onclick handlers
 window.toggleLogContent = toggleLogContent;
+
+function exportLogs() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const logs = document.querySelectorAll('.log');
+    let y = 20; 
+
+    const date = new Date().toLocaleDateString('en-US', {
+        month: 'long',
+        day: '2-digit',
+        year: 'numeric'
+    }).replace(/ /g, '-');
+
+    logs.forEach((logElem, i) => {
+        if (i != 0) {
+            doc.addPage();
+            y = 20;
+        }
+
+        const dateText = logElem.querySelector('.log-top-info h5')?.innerText || 'Date unknown';
+        const riskText = logElem.querySelector('.risk-indicator')?.innerText || 'Risk unknown';
+        const riskFactorsElem = logElem.querySelector('.log-bottom-info p');
+        const riskFactors = riskFactorsElem?.innerText?.trim() || 'No risk factors listed';
+        const planItems = logElem.querySelectorAll('.log-plan li');
+
+        doc.setFont("Helvetica", "bold");
+        doc.text(`${dateText} — ${riskText}`, 10, y);
+        y += 10;
+
+        doc.setFont("Helvetica", "normal");
+        const riskFactorLines = doc.splitTextToSize(`Risk Factors: ${riskFactors}`, 180);
+        doc.text(riskFactorLines, 10, y);
+        y += riskFactorLines.length * 6;
+
+        y+=20;
+
+        if (planItems.length > 0) {
+            doc.setFont("Helvetica", "normal");
+            doc.text("Recommended Plan:", 10, y);
+            y += 6;
+
+            doc.setFont("Helvetica", "normal");
+            planItems.forEach(item => {
+                const text = item.innerText;
+                const lines = doc.splitTextToSize(text, 180);
+                doc.text(lines, 14, y);
+                y += lines.length * 6;
+            });
+        }
+
+        y += 10; 
+
+    });
+
+    doc.save(`logs-${date}.pdf`);
+}
+
