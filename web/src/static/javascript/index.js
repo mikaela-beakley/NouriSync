@@ -21,8 +21,8 @@ function getRiskClass(riskScore) {
 function createLogHTML(log) {
     const formattedDate = log.timestamp;
     const riskClass = getRiskClass(log.ai_response.risk_score);
-    const riskFactorsText = log.ai_response.risk_factors;
-    
+    const riskFactorsText = log.ai_response.risk_factors.join('<br>');
+
     // Create plan items
     const planItems = log.ai_response.plan.map(item => 
         `<li>

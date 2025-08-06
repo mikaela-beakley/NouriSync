@@ -15,14 +15,11 @@
 <body>
     <nav>
         <div class="navbar">
+            <img src="../static/nourisync.png" alt="nourisync logo" class="nourisync-icon">
             <h3 class="logo">NOURISYNC</h3>
             <ul class="nav-links">
-                <li class="nav-link">
-                    <a href="#" class="nav-link">Home</a>
-                </li>
-                <li class="nav-link">
-                    <a href="#" class="nav-link">About</a>
-                </li>
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">About</a>
             </ul>
         </div>
     </nav>
@@ -31,10 +28,19 @@
             <div class="welcome-info">
                 <div class="welcome-left">
                     <h1>Welcome back,<br> User.</h1>
-                    <a href="/questionnaire">
-                                <button class="new-log-button">New Log</button>
-                    </a>
-                </div>
+                    <div class="log-buttons">
+                        <a href="/questionnaire">
+                            <button class="log-button new-log-button">
+                                <img src="../static/new-log.png" alt="new log icon" class="log-button-icon">
+                                New Log
+                            </button>
+                        </a>
+                        <button class="log-button export-log-button" onclick="exportLogs()">
+                            <img src="../static/export-log.png" alt="export log icon" class="log-button-icon">
+                            Export Log
+                        </button>
+                    </div>
+                    </div>
                 <div class="streak-info">
                     <div class="streak-info-top">
                         <img src="../static/fire-logo-streak.png" alt="fire streak logo" class="fire-streak-image">
@@ -50,15 +56,6 @@
                         <span class="day">F</span>
                         <span class="day">S</span>
                     </div>
-
-                    
-                    <!-- <div class="streak-info-bottom">
-                        <ul>
-                            <li class="day">
-                                <div></div>
-                            </li>
-                        </ul>
-                    </div> -->
                 </div>
             </div>
             <div class="logs-list" id="logs-container">
