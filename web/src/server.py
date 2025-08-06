@@ -2,8 +2,8 @@ from flask import Flask, render_template, request, redirect, jsonify
 import json
 import os
 from datetime import datetime
-from DailyLogFormatter import DailyFormatter
-from DailyLogAI import DailyLogAI
+#from DailyLogFormatter import DailyFormatter
+#from DailyLogAI import DailyLogAI
 
 app = Flask(__name__)
 
@@ -222,7 +222,7 @@ def post_caregiver_answers():
         # Call LLM function
 
         #FALSE for real LLM, TRUE for debug test
-        ai_response = llm_call(combined_data, False)
+        ai_response = llm_call(combined_data, True)
         
         # Create complete log entry
         timestamp = datetime.now().strftime("%m/%d/%Y - %I:%M %p")
@@ -274,4 +274,5 @@ def get_date_format():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host='0.0.0.0', port=port, debug=True)
