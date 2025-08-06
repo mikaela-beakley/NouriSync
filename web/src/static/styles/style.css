@@ -313,3 +313,71 @@ a {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.03);
 }
+
+.form-page.intro-block {
+    flex: 1.5;
+    /* background: var(--bg-secondary); */
+    background: white;
+    border-color: #cdcdcd;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 2rem;
+    margin: 2rem;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.home-button {
+    width: 100px;
+    height: auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.form-page.intro-block > h2 {
+    font-size: 3rem;
+    margin-top: -.3rem;
+    margin-bottom: 1rem;
+}
+
+.form-page.intro-block > p {
+    margin-top: -1rem;
+    font-size: 1.2rem;
+}
+
+.form-intro-image {
+  width: 70% !important;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.questionnaire-begin-button {
+  background-color: #0EAA58;     /* gentle green */
+  color: white;                  /* crisp contrast */
+  font-size: 1.5rem;             /* makes it roomy */
+  padding: 1rem 2.5rem;          /* balanced horizontal & vertical space */
+  border: none;
+  border-radius: 20px;           /* rounded edges for that cozy vibe */
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* soft lift */
+  transition: background-color 0.3s ease;
+}
+
+.questionnaire-begin-button:hover {
+  background-color: #0e984e; 
+}
+
+.home-button {
+  position: absolute;
+  top: 45px;
+  left: 320px;
+  width: 40px; /* or however big you want it */
+  height: auto;
+  cursor: pointer;
+  box-shadow: none;
+}

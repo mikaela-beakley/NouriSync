@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caregiver-Patient Questionnaire</title>
     <link rel="stylesheet" href="../static/styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    
     <script src="../static/javascript/lib/moment-with-locales.min.js" type="module"></script>
     <script src="../static/javascript/questionnaire.js" defer></script>
 </head>
 <body>
     <div class="main-content-questionnaire" id="main-questionnaire-content">
         <div class="form-page intro-block">
+            <a href="/">
+            <img src="../static/home.png" alt="home button" class="home-button">
+            </a>
             <h2>Daily Check-In</h2>
             <p>Friday, August 1</p>
-            <img src="../static/family-img.png" alt="">
+            <img src="../static/family-img.png" alt="form intro image" class="form-intro-image">
             <h1>Let's answer today's questions together</h1>
             <p class="questionnaire-intro-subtitle">You will answer first, then pass the phone to your caregiver.</p>
-            <a href="/questionnaire?phase=1"><button class="questionnaire-begin-button">Begin</button></a>
+            <a href="/questionnaire?phase=1"><button class="questionnaire-begin-button">Begin!</button></a>
         </div>
         <div class="questionnaire-form-caregiver form-page">
             <h1>Patient Questions</h1>
