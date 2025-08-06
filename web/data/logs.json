@@ -116,5 +116,42 @@
         }
       ]
     }
+  },
+  {
+    "id": 4,
+    "timestamp": "08/06/2025 - 01:21 PM",
+    "patient_input": {
+      "how-are-you-feeling": "0",
+      "how-supported-do-you-feel": "1",
+      "tough-time": "",
+      "something-feels-safer": "",
+      "caregiver-helpful": "",
+      "caregiver-unhelpful": "",
+      "recover-ready": "5",
+      "comments": ""
+    },
+    "caregiver_input": {
+      "patient-meal-completion": "0",
+      "loved-one-needs": "I'm not sure",
+      "comments": "No"
+    },
+    "ai_response": {
+      "risk_score": "low",
+      "risk_factors": [
+        "Regular monitoring indicated"
+      ],
+      "plan": [
+        {
+          "step": "Continue regular meal support.",
+          "rationale": "Maintain positive momentum in recovery.",
+          "source": "Recovery-oriented care principles"
+        },
+        {
+          "step": "Celebrate small wins together.",
+          "rationale": "Positive reinforcement enhances motivation.",
+          "source": "Behavioral therapy principles"
+        }
+      ]
+    }
   }
 ]

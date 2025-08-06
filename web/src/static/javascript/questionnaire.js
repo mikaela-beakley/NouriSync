@@ -144,6 +144,14 @@ function createCaregiverBlock() {
                 </div>
                 <br>
                 <br>
+                <label for="avoided-food">Is there any particular type of food you've notice the patient avoiding? If so, please explain what it is.</label><br>
+                <input type="text" id="avoided-food" name="avoided-food" value="" size=30>
+                <br>
+                <br>
+                <label for="caloric-intake">If you are measuring daily caloric intake, please input what it is for today below.</label><br>
+                <input type="number" id="caloric-intake" name="caloric-intake" value="" size=30>
+                <br>
+                <br>
                 <label for="comments">Is there anything you would like to privately note for the journal?</label><br>
                 <input type="text" id="comments" name="comments" value="" size=30>
                 <br>
