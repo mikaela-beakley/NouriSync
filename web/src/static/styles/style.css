@@ -77,6 +77,11 @@ a {
   background-color: #cab8b6;
 }
 
+.fa-circle-user {
+    width: 17px;
+    height: 17px;
+}
+
 .welcome-info {
     margin-top: 50px;
     text-align: center;
