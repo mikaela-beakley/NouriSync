@@ -1,7 +1,9 @@
 :root {
     --bg-main: #bbd3bc;
-    --bg-secondary: #FDFAF5;
-    --selected: #c7e4d7;
+    --bg-secondary: #fff9f5;
+    --hand-color: #cab8b6;
+    --selected: #eae2da;
+    --fire-orange: #e96500;
     --accent-primary: #ECAD4E;
     --accent-primary-light: #F4D19B;
     --transition: .75s
@@ -10,6 +12,7 @@
 body {
     font-family: "Baloo 2", cursive;
     background-color: var(--bg-main);
+    margin-bottom: 3%;
 }
 
 hero {
@@ -74,7 +77,7 @@ a {
 
 .nav-link:hover {
   text-decoration: none;
-  background-color: #cab8b6;
+  background-color: var(--selected);
 }
 
 .welcome-info {
@@ -103,7 +106,7 @@ a {
 
 .log-buttons {
     display: flex;
-    background-color: #ffffff;
+    background-color: var(--bg-secondary);
     border-color: #cdcdcd;
     border-width: 2px;
     border-style: solid;
@@ -119,7 +122,7 @@ a {
 }
 
 .log-button {
-  background-color: #d3d3d3;
+  background-color: var(--hand-color);
   font-family: "Baloo 2", cursive;
   color: #000000;
   font-size: 1rem;
@@ -136,7 +139,7 @@ a {
 }
 
 .log-button:hover {
-  background-color: #939393;
+  background-color: #9b8b8a;
 }
 
 .log-button-icon {
@@ -149,7 +152,7 @@ a {
 .streak-info {
     flex: 1.5;
     /* background: var(--bg-secondary); */
-    background: white;
+    background: var(--bg-secondary);
     border-color: #cdcdcd;
     border-width: 2px;
     border-style: solid;
@@ -164,7 +167,7 @@ a {
 .streak-info-top {
     font-size: 5rem;
     font-weight: bold;
-    color: #e96500;
+    color: var(--fire-orange);
     gap: 0px;
 }
 
@@ -194,7 +197,7 @@ a {
 }
 
 .day {
-  background-color: #e0e0e0;
+  background-color: #cab8b6;
   color: #333;
   margin-top: 4px;
   font-weight: bold;
@@ -207,8 +210,8 @@ a {
 }
 
 .day.completed {
-  background-color: #e96500;
-  color: white;
+  background-color: var(--fire-orange);
+  color: var(--bg-secondary);
 }
 
 /* Dynamic log container */
@@ -220,9 +223,8 @@ a {
 
 /* Individual log card */
 .log {
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 12px;
-  margin-top: 1rem;
   padding-left: 1rem;
   padding-bottom: 1rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.04);
@@ -244,7 +246,6 @@ a {
   border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
 }
 
 .risk-indicator.low-risk {
@@ -298,10 +299,6 @@ a {
   padding-left: 1.25rem;
 }
 
-.log-plan li {
-  margin-bottom: 1rem;
-}
-
 .loading-message,
 .no-logs-message,
 .error-message {
@@ -317,7 +314,7 @@ a {
 .form-page.intro-block {
     flex: 1.5;
     /* background: var(--bg-secondary); */
-    background: white;
+    background: var(--bg-secondary);
     border-color: #cdcdcd;
     border-width: 2px;
     border-style: solid;
