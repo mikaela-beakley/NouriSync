@@ -171,12 +171,16 @@ function createIntroBlock() {
     date = Date().split(' ');
     date = date[0] + ', ' + date[1] + " " + date[2];
     return `<div class="form-page intro-block">
-            <h2>Daily Check-In</h2>
-            <p>${date}</p>
-            <img src="../static/family-img.png" alt="">
-            <h1>Let's answer today's questions together</h1>
-            <p class="questionnaire-intro-subtitle">You will answer first, then pass the phone to your caregiver.</p>
-            <a href="/questionnaire?phase=1"><button class="questionnaire-begin-button">Begin</button></a>        </div>`
+                <a href="/">
+                    <img src="../static/home.png" alt="home button" class="home-button">
+                </a>                
+                <h2>Daily Check-In</h2>
+                <p>Friday, August 1</p>
+                <img src="../static/family-img.png" alt="form intro image" class="form-intro-image">
+                <h1>Let's answer today's questions together</h1>
+                <p class="questionnaire-intro-subtitle">You will answer first, then pass the phone to your caregiver.</p>
+                <a href="/questionnaire?phase=1"><button class="questionnaire-begin-button">Begin!</button></a>
+            </div>`
 }
 
 let searchParams = new URLSearchParams(window.location.href.split('?')[1])
