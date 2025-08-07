@@ -1,3 +1,119 @@
 [
-  
+  {
+    "id": 1,
+    "timestamp": "08/07/2025 - 03:19 PM",
+    "patient_input": {
+      "scale-question-1": "0",
+      "scale-question-2": "2",
+      "tough-time": "ad",
+      "day-description": "ddd",
+      "caregiver-helpful": " dd",
+      "caregiver-unhelpful": " asd",
+      "recover-ready": "6.6",
+      "comments": " asd"
+    },
+    "caregiver_input": {
+      "patient-meal-completion": "0",
+      "loved-one-needs": "Encouragement and presence",
+      "avoided-food": " d",
+      "caloric-intake": " asd",
+      "comments": " asd"
+    },
+    "ai_response": {
+      "risk_score": "medium",
+      "risk_factors": [
+        "Low mood reported"
+      ],
+      "plan": [
+        {
+          "step": "Check in every 2 hours during meal times.",
+          "rationale": "Regular monitoring prevents escalation.",
+          "source": "FBT Guidelines, 2019"
+        },
+        {
+          "step": "Encourage engagement in planned activities.",
+          "rationale": "Structured activities reduce rumination.",
+          "source": "CBT-E Manual, 2016"
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "timestamp": "08/07/2025 - 03:21 PM",
+    "patient_input": {
+      "scale-question-1": "3",
+      "scale-question-2": "0",
+      "tough-time": "asd",
+      "day-description": "asd",
+      "caregiver-helpful": " asd",
+      "caregiver-unhelpful": " d",
+      "recover-ready": "5",
+      "comments": "d "
+    },
+    "caregiver_input": {
+      "patient-meal-completion": "2",
+      "loved-one-needs": "Encouragement and presence",
+      "avoided-food": " d",
+      "caloric-intake": " asd",
+      "comments": " dd"
+    },
+    "ai_response": {
+      "risk_score": "medium",
+      "risk_factors": [
+        "Low support feeling"
+      ],
+      "plan": [
+        {
+          "step": "Check in every 2 hours during meal times.",
+          "rationale": "Regular monitoring prevents escalation.",
+          "source": "FBT Guidelines, 2019"
+        },
+        {
+          "step": "Encourage engagement in planned activities.",
+          "rationale": "Structured activities reduce rumination.",
+          "source": "CBT-E Manual, 2016"
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "timestamp": "08/07/2025 - 03:23 PM",
+    "patient_input": {
+      "scale-question-1": "4",
+      "scale-question-2": "4",
+      "tough-time": "asd",
+      "day-description": "asd",
+      "caregiver-helpful": " asd",
+      "caregiver-unhelpful": " asd",
+      "recover-ready": "9.3",
+      "comments": " d"
+    },
+    "caregiver_input": {
+      "patient-meal-completion": "4",
+      "loved-one-needs": "Space and patience",
+      "avoided-food": " d",
+      "caloric-intake": " asd",
+      "comments": " dd"
+    },
+    "ai_response": {
+      "risk_score": "low",
+      "risk_factors": [
+        "Regular monitoring indicated"
+      ],
+      "plan": [
+        {
+          "step": "Continue regular meal support.",
+          "rationale": "Maintain positive momentum in recovery.",
+          "source": "Recovery-oriented care principles"
+        },
+        {
+          "step": "Celebrate small wins together.",
+          "rationale": "Positive reinforcement enhances motivation.",
+          "source": "Behavioral therapy principles"
+        }
+      ]
+    }
+  }
 ]

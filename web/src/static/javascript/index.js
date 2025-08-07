@@ -78,7 +78,7 @@ async function loadLogs() {
     try {
         const response = await fetch('/logs');
         const logs = await response.json();
-        
+        console.log(logs);
         const logsContainer = document.getElementById('logs-container');
         
         if (logs.length === 0) {
