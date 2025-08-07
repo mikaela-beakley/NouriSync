@@ -118,7 +118,12 @@ def llm_call(data, debug):
 
 def load_logs():
     """load existing logs from logs.json file"""
-    logs_path = os.path.join('..', 'data', 'logs.json')
+    # Get the directory where server.py is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # Go up one level to web/, then into data/
+    logs_path = os.path.join(script_dir, '..', 'data', 'logs.json')
+    logs_path = os.path.abspath(logs_path)  # Convert to absolute path
+    
     try:
         if os.path.exists(logs_path):
             with open(logs_path, 'r', encoding='utf-8') as f:
@@ -131,10 +136,17 @@ def load_logs():
 
 def save_logs(logs):
     """save logs to logs.json file"""
-    logs_path = os.path.join('..', 'data', 'logs.json')
+    # Get the directory where server.py is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # Go up one level to web/, then into data/
+    logs_path = os.path.join(script_dir, '..', 'data', 'logs.json')
+    logs_path = os.path.abspath(logs_path)  # Convert to absolute path
+    
     try:
         # Ensure directory exists
         os.makedirs(os.path.dirname(logs_path), exist_ok=True)
+        
+        print(f"Saving logs to: {logs_path}")  # Debug print
         
         with open(logs_path, 'w', encoding='utf-8') as f:
             json.dump(logs, f, indent=2, ensure_ascii=False)
@@ -220,6 +232,7 @@ def post_caregiver_answers():
         
         # Load existing logs
         logs = load_logs()
+        print(f"Loaded {len(logs)} existing logs")
         
         # Call LLM function
 
@@ -238,10 +251,13 @@ def post_caregiver_answers():
         
         # Add to logs
         logs.append(log_entry)
+        print(f"Created log entry with ID: {log_entry['id']}")
         
         # Save logs
         if not save_logs(logs):
             return jsonify({"error": "Failed to save log entry"}), 500
+        
+        print(f"Successfully saved {len(logs)} logs")
         
         # Clear temporary patient data
         temp_patient_data.pop('latest', None)
