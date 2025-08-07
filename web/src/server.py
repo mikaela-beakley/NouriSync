@@ -4,6 +4,7 @@ import os
 from datetime import datetime, timedelta
 #from DailyLogFormatter import DailyFormatter
 #from DailyLogAI import DailyLogAI
+#from EmotionAI import EmotionAI
 
 app = Flask(__name__)
 
@@ -22,6 +23,7 @@ def llm_call(data, debug):
         caregiver_data = data.get('caregiver_input', {})
 
         # Simple risk assessment based on form responses
+        emotions_list = ["extremly happy", "depressed"]
         risk_score = "low"
         risk_factors = []
         
@@ -103,6 +105,7 @@ def llm_call(data, debug):
         
         
         return {
+            "emotions_list": emotions_list,
             "risk_score": risk_score,
             "risk_factors": risk_factors,
             "plan": plan
@@ -111,9 +114,14 @@ def llm_call(data, debug):
         #real llm
         Formatter = DailyFormatter(data)
         combined = Formatter.format()
+        patient = Formatter.patient_format()
         
+        #get mood from mood
+        EmotionCooker = EmotionAI()
+        emotions = EmotionCooker.get_emotions(data.get('patient_input').get('day-description'))
+
         DailyAI = DailyLogAI()
-        response = DailyAI.queryLLM(combined)
+        response = DailyAI.queryLLM(combined, emotions)
         return json.loads(response)
 
 def load_logs():

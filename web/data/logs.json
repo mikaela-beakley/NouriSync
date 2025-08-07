@@ -20,7 +20,10 @@
       "comments": "She isolated in her room for most of the day."
     },
     "ai_response": {
-      "emotions_list": ["Body Dissatisfaction", "Anxiety"],
+      "emotions_list": [
+        "Body Dissatisfaction",
+        "Anxiety"
+      ],
       "risk_score": "high",
       "risk_factors": [
         "Missed multiple meals",
@@ -67,7 +70,10 @@
       "comments": "Seemed anxious at lunch, distracted during dinner."
     },
     "ai_response": {
-      "emotions_list": ["Sadness", "Restricting"],
+      "emotions_list": [
+        "Sadness",
+        "Restricting"
+      ],
       "risk_score": "medium",
       "risk_factors": [
         "Partial meal completion",

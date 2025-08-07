@@ -37,3 +37,6 @@ instance/
 # 📄 Environment files
 .env
 *.env
+
+# model folder
+web/src/model/

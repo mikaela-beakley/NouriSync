@@ -41,52 +41,81 @@ class DailyLogAI:
         return index, embeddings
     
    
-    def generate_response(self, query, index, embedder, docs, generate):
+    def generate_response(self, query, index, embedder, docs, generate, emotions):
         query_vec = embedder.encode([query], convert_to_numpy=True)
         _, I = index.search(query_vec, k=3)
         context = "\n\n".join([docs[i] for i in I[0]])
 
-        prompt = f"""[INST] 
-        You are a clinical assistant AI that helps analyze outpatient eating behaviors for risk of relapse from eating disorders. Below is a patient's weekly eating habit log. Use the context below (from medical literature) to assess relapse risk, identify any red flags, and provide 1–2 suggestions for intervention.
+        prompt = f"""[INST]
+You are Clinical Assistant AI analyzing **outpatient** eating-disorder logs to assess relapse risk and produce **specific caregiver actions** (next 24–72h). Assume patient profile: Name=Helen, Sex=female, Age=14, Diagnosis=anorexia nervosa.
 
-        If the context doesn’t apply, say "Not enough information."
+Non-negotiable rules:
+- Ground all thresholds/actions in **Context** (RAG). Do **not** invent numbers. If a needed threshold is missing in Context, say "Not enough information."
+- Reconcile patient vs caregiver inputs; emphasize concrete **behaviors**: missed/partial meals, post-meal bathroom use (minutes), purging/laxatives/diuretics, compulsive exercise, water-loading, dizziness/syncope, concealment, body-checking.
+- Output **only valid JSON** in the exact schema below. No prose, no headings, no extra keys.
+- Style: **terse bullets, no paragraphs**. Each risk_factors item ≤ 12 words. Each plan.step ≤ 20 words with duration/frequency. Avoid hedging words: seems, consider, probably, monitor closely.
+- Every plan item must include a **source** citing Context (e.g., "[C7]").
 
-        Respond only in valid JSON. Do not include any explanation, commentary, or Markdown formatting.
+Context:
+{context}
 
-        Context:
-        {context}
+Patient log (JSON; contains patient_input and caregiver_input):
+{query}
 
-        Patient log:
-        {query}
+The two emotions the patient is currently experiencing:
+{emotions}
 
-        Respond in the following exact JSON format:
-        {{
-        "risk_score": "low" | "moderate" | "high",
-        "risk_factors": [
-            "Short explanation of reasoning 1",
-            "Short explanation of reasoning 2"
-        ],
-        "plan": [
-            {{
-            "step": "Actionable recommendation 1",
-            "rationale": "Brief justification for step 1",
-            "source": "Source or best practice principle"
-            }},
-            {{
-            "step": "Actionable recommendation 2",
-            "rationale": "Brief justification for step 2",
-            "source": "Source or best practice principle"
-            }}
-        ]
-        }}
-        [/INST]
-        """
+Scoring rubric (derive strictly from Context):
+- low: stable intake; no red-flag criteria met by Context thresholds.
+- moderate: some red flags/contradictions; thresholds partially met.
+- high: multiple red flags and ≥1 Context threshold for urgent risk.
+
+Respond only in the following exact JSON format (no extra fields):
+
+{{
+  "emotions_list": ["emotion 1", "emotion 2"], 
+  "risk_score": "low" | "moderate" | "high",
+  "risk_factors": [
+    "Short explanation."
+  ],
+  "plan": [
+    {{
+      "step": "Concrete caregiver action",
+      "rationale": "Brief justification",
+      "source": ""
+    }},
+    {{
+      "step": "Concrete caregiver action",
+      "rationale": "Brief justification",
+      "source": ""
+    }}
+  ]
+}}
+
+Example output (format/style only; values illustrative, do not copy):
+{{
+  "risk_score": "high",
+  "risk_factors": " Low meal completion and self-reported purge urges indicate acute relapse risk with anorexia nervosa. These symptoms reflect breakdowns in meal structure, increasing risk for medical instability and compensatory behaviors common in this diagnosis. Immediate behavioral containment and monitoring are required."
+  "plan": [
+    {{
+      "step": "Ensure full supervision during all meals and for at least 15 minutes after eating.",
+      "rationale": "Reduces food avoidance and purging attempts. Helps reinforce normalized eating structure.",
+      "source": "CDC Behavioral Monitoring Guidelines"
+    }},
+    {{
+      "step": "Patient should not be alone in or near the bathroom for 90 minutes post-meal.",
+      "rationale": "Targets common compensatory behaviors (vomiting, exercise, laxative use) following eating.",
+      "source": "Lock et al., Mayo Clinic ED Protocol"
+    }}
+  ]
+}}
+[/INST]"""
 
         response = generate(prompt, max_new_tokens=500, do_sample=False)[0]['generated_text']
         response = "\n" +  response.split("[/INST]")[-1].strip()
         return response
     
-    def queryLLM(self, query):
+    def queryLLM(self, query, emotions):
         print("[+] Loading Model")
         generate = self.generate
 
@@ -98,4 +127,4 @@ class DailyLogAI:
         embedder = SentenceTransformer("all-MiniLM-L6-v2")
         index, _ = self.build_faiss_index(all_chunks, embedder)
 
-        return self.generate_response(query, index, embedder, all_chunks, generate)
+        return self.generate_response(query, index, embedder, all_chunks, generate, emotions)
