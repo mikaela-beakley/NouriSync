@@ -119,10 +119,10 @@ a {
     top: 120%; 
     left: 40%;
     transform: translateX(-50%);
-    background-color: #fff;
+    background-color: var(--bg-secondary);
     color: #333;
     padding: 10px 15px;
-    border: 1px solid #ccc;
+    border: 1px solid lightgrey;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     white-space: nowrap;
