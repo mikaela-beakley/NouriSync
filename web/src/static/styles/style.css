@@ -313,7 +313,6 @@ a {
 
 .form-page.intro-block {
     flex: 1.5;
-    /* background: var(--bg-secondary); */
     background: var(--bg-secondary);
     border-color: #cdcdcd;
     border-width: 2px;
@@ -352,20 +351,25 @@ a {
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-.questionnaire-begin-button {
-  background-color: #0EAA58;     /* gentle green */
-  color: white;                  /* crisp contrast */
-  font-size: 1.5rem;             /* makes it roomy */
-  padding: 1rem 2.5rem;          /* balanced horizontal & vertical space */
+.questionnaire-begin-button,
+.patient-done-button,
+.form-done-button {
+  background-color: #0EAA58;     
+  font-family: 'Baloo 2', cursive;
+  color: white;                 
+  font-size: 1.5rem;       
+  padding: 1rem 2.5rem;          
   border: none;
-  border-radius: 20px;           /* rounded edges for that cozy vibe */
+  border-radius: 20px;       
   cursor: pointer;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* soft lift */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
   transition: background-color 0.3s ease;
 }
 
-.questionnaire-begin-button:hover {
+.questionnaire-begin-button:hover,
+.patient-done-button:hover,
+.form-done-button:hover {
   background-color: #0e984e; 
 }
 
@@ -373,8 +377,90 @@ a {
   position: absolute;
   top: 45px;
   left: 320px;
-  width: 40px; /* or however big you want it */
+  width: 40px; 
   height: auto;
   cursor: pointer;
   box-shadow: none;
+}
+
+.questionnaire-form-caregiver input[type="range"] {
+    width: 30%;
+    height: 8px;
+    border-radius: 5px;
+    background: gray; 
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+.questionnaire-form-caregiver input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #666;
+    cursor: pointer;
+}
+
+.questionnaire-form-caregiver.form-page,
+.questionnaire-form-caregiver {
+    flex: 1.5;
+    /* background: var(--bg-secondary); */
+    background: var(--bg-secondary);
+    border-color: #cdcdcd;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 2rem;
+    margin: 2rem;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+.questionnaire-form-caregiver.form-page > h1,
+.questionnaire-form-caregiver > h1 {
+  text-align: center;
+  margin-top: -.3em;
+  font-size: 2.5em;
+  text-decoration: underline;
+}
+
+.scale-question > p {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 0.2em;
+}
+
+.scale-options {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.open-question > label {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+textarea {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fefefe;
+  resize: vertical;
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.slider-question > label {
+  font-weight: bold;
+  font-size: 1.2em;
 }
