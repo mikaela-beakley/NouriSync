@@ -118,7 +118,7 @@ def llm_call(data, debug):
 
 def load_logs():
     """load existing logs from logs.json file"""
-    logs_path = os.path.join('web', 'data', 'logs.json')
+    logs_path = os.path.join('..', 'data', 'logs.json')
     try:
         if os.path.exists(logs_path):
             with open(logs_path, 'r', encoding='utf-8') as f:
@@ -131,7 +131,7 @@ def load_logs():
 
 def save_logs(logs):
     """save logs to logs.json file"""
-    logs_path = os.path.join('web', 'data', 'logs.json')
+    logs_path = os.path.join('..', 'data', 'logs.json')
     try:
         # Ensure directory exists
         os.makedirs(os.path.dirname(logs_path), exist_ok=True)
@@ -164,10 +164,10 @@ def post_patient_answers():
     try:
         # Get all form data
         patient_data = {
-            'how-are-you-feeling': form_answers.get('scale-question-1'),
-            'how-supported-do-you-feel': form_answers.get('scale-question-2'),
+            'scale-question-1': form_answers.get('scale-question-1'),
+            'scale-question-2': form_answers.get('scale-question-2'),
             'tough-time': form_answers.get('tough-time', ''),
-            'something-feels-safer': form_answers.get('something-feels-safer', ''),
+            'day-description': form_answers.get('day-description', ''),
             'caregiver-helpful': form_answers.get('caregiver-helpful', ''),
             'caregiver-unhelpful': form_answers.get('caregiver-unhelpful', ''),
             'recover-ready': form_answers.get('recover-ready'),
@@ -199,6 +199,8 @@ def post_caregiver_answers():
         caregiver_data = {
             'patient-meal-completion': form_answers.get('scale-question-1'),
             'loved-one-needs': form_answers.get('scale-question-2'),
+            'avoided-food': form_answers.get('avoided-food', ''),
+            'caloric-intake': form_answers.get('caloric-intake', ''),
             'comments': form_answers.get('comments', '')
         }
         

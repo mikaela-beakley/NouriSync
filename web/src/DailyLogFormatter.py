@@ -45,7 +45,7 @@ class DailyFormatter:
             case 1:
                 return "A little supported"
             case 2:
-                return "Netural"
+                return "Neutral"
             case 3:
                 return "Mostly supported"
             case 4:
@@ -60,7 +60,7 @@ class DailyFormatter:
             case 1:
                 return "Somewhat disagree"
             case 2:
-                return "Netural"
+                return "Neutral"
             case 3:
                 return "Somewhat agree"
             case 4:
@@ -74,9 +74,10 @@ class DailyFormatter:
         patient_data = data.get('patient_input', {})
         patient_format = f"""
         Patient Answers:
-        Patient's current feeling: {self.get_feeling(int(patient_data.get('how-are-you-feeling')))}
-        How supported the patient feels: {self.get_support(int(patient_data.get('how-supported-do-you-feel')))}
+        Patient's current feeling: {self.get_feeling(int(patient_data.get('scale-question-1')))}
+        How supported the patient feels: {self.get_support(int(patient_data.get('scale-question-2')))}
         A time during the day the patient found tough: {patient_data.get('tough-time')}
+        How the patient's day went: {patient_data.get('day-description')}
         Something the caregiver does that is helpful: {patient_data.get('caregiver-helpful')}
         Something the caregiver could work on: {patient_data.get('caregiver-unhelpful')}
         Patients Readiness for recovery on a scale of 1-10: {patient_data.get('recover-ready')}
@@ -91,6 +92,8 @@ class DailyFormatter:
         Caregiver Answers: 
         The patient ate their required meals: {self.get_required_meals(int(caregiver_data.get('patient-meal-completion')))}
         What the patient might need from the caregiver: {caregiver_data.get('loved-one-needs')}
+        Food the patient has been avoiding: {caregiver_data.get('avoided-food')}
+        Patient's daily caloric intake: {caregiver_data.get('caloric-intake')}
         Additional comments from the caregiver: {caregiver_data.get('comments')}
         """
         return caregiver_format

@@ -25,7 +25,7 @@
         </div>
         <div class="questionnaire-form-caregiver form-page">
             <h1>Patient Questions</h1>
-            <form action="" method="get" onsubmit="switchToCaregiver(event)" class="questionnaire patient-questionnaire" id="patient-form">
+            <form action="/questionnaire-patient-info" method="post" onsubmit="switchToCaregiver(event)" class="questionnaire patient-questionnaire" id="patient-form">
                 <div class="scale-question">
                     <p>How are you feeling today?</p>
                     <input type="radio" name="scale-question-1" id="strongly-disagree" value=0>
@@ -72,9 +72,9 @@
                 <br>
                 <br>
                 <div class="open-question">
-                    <label for="something-feels-safer">Please describe something that makes you feel safer when things get hard.</label>
+                    <label for="day-description">Please describe how your day went :)</label>
                     <br>
-                    <input type="text" id="something-feels-safer" name="something-feels-safer" value="" size="30">
+                    <input type="text" id="day-description" name="day-description" value="" size="30">
                 </div>
                 <br>
                 <br>

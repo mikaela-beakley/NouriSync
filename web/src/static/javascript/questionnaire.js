@@ -63,9 +63,9 @@ function createPatientBlock() {
                 <br>
                 <br>
                 <div class="open-question">
-                    <label for="something-feels-safer">Please describe something that makes you feel safer when things get hard.</label>
+                    <label for="day-description">Please describe how your day went :)</label>
                     <br>
-                    <input type="text" id="something-feels-safer" name="something-feels-safer" value="" size="30">
+                    <input type="text" id="day-description" name="day-description" value="" size="30">
                 </div>
                 <br>
                 <br>
@@ -167,7 +167,7 @@ function switchToPatient() {
 }
 
 function switchToCaregiver(e) {
-    submitForm(Document.getElementById("patient-form", "/questionnaire-patient-info"));
+    submitForm(document.getElementById("patient-form"), "/questionnaire-patient-info");
     renderBlock(createCaregiverBlock());
 }
 
