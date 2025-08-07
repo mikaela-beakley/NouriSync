@@ -6,7 +6,7 @@
     --fire-orange: #e96500;
     --accent-primary: #ECAD4E;
     --accent-primary-light: #F4D19B;
-    --transition: .75s
+    --transition: .75s;
 }
 
 body {
@@ -73,6 +73,7 @@ a {
   padding: .5rem 1rem;
   border-radius: 30px;
   background-color: var(--bg-secondary);
+  flex-wrap: nowrap;
 }
 
 .nav-link:hover {
