@@ -33,6 +33,7 @@ hero {
     padding-right: 1em;
     background-color: var(--bg-secondary);
     border-radius: 15px;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
 }
 
 a {
@@ -89,7 +90,7 @@ a {
     display: flex;
     align-items: flex-start;
     gap: 2rem;
-    flex-wrap: wrap; /* Helps on smaller screens */
+    flex-wrap: wrap;
 }
 
 .welcome-left {
@@ -118,12 +119,12 @@ a {
     display: none;
     position: absolute;
     top: 120%; 
-    left: 40%;
+    left: 10%;
     transform: translateX(-50%);
-    background-color: #fff;
+    background-color: var(--bg-secondary);
     color: #333;
     padding: 10px 15px;
-    border: 1px solid #ccc;
+    border: 1px solid lightgrey;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     white-space: nowrap;
@@ -154,6 +155,7 @@ a {
     justify-content: space-around;
     align-items: center;
     transform: translateY(-16px);
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
 }
 
 .log-button {
@@ -197,6 +199,7 @@ a {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     padding: 1rem;
     padding-bottom: 2.5rem;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
 }
 
 .streak-info-top {
@@ -249,14 +252,12 @@ a {
   color: var(--bg-secondary);
 }
 
-/* Dynamic log container */
 .logs-list {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* Individual log card */
 .log {
   background-color: var(--bg-secondary);
   border-radius: 12px;
@@ -264,9 +265,9 @@ a {
   padding-bottom: 1rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.04);
   border: 1px solid #e3e7ec;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
 }
 
-/* Log top section */
 .log-top-info h5 {
   font-size: 1rem;
   font-weight: 600;
@@ -274,7 +275,6 @@ a {
   color: #2c3e50;
 }
 
-/* Risk display styling */
 .risk-indicator {
   display: inline-block;
   padding: 0.25rem 0.5rem;
@@ -299,14 +299,12 @@ a {
   color: #c62828;
 }
 
-/* Bottom log info */
 .log-bottom-info p {
   font-size: 0.95rem;
   margin-bottom: 1rem;
   color: #333;
 }
 
-/* Collapsible button */
 .collapsable {
   background: transparent;
   border: none;
@@ -318,7 +316,6 @@ a {
   transition: transform 0.3s ease;
 }
 
-/* Expanded content */
 .log-content {
   margin-top: 1rem;
   font-size: 0.9rem;

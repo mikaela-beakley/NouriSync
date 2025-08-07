@@ -246,7 +246,7 @@ function createIntroBlock() {
                     <img src="../static/home.png" alt="home button" class="home-button">
                 </a>                
                 <h2>Daily Check-In</h2>
-                <p>Friday, August 1</p>
+                <p id="current-date">Friday, August 8</p>
                 <img src="../static/family-img.png" alt="form intro image" class="form-intro-image">
                 <h1>Let's answer today's questions together</h1>
                 <p class="questionnaire-intro-subtitle">You will answer first, then pass the phone to your caregiver.</p>
@@ -328,3 +328,11 @@ function getColor(value) {
         return interpolateColor('#ffae00', '#008a17', factor);
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dateElement = document.getElementById("current-date");
+  if (dateElement) {
+    const today = moment().format("dddd, MMMM D, YYYY");
+    dateElement.textContent = today;
+  }
+});
