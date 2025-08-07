@@ -161,6 +161,9 @@ function createCaregiverBlock() {
                     <br>
                     <input type="radio" name="scale-question-1" id="strongly-agree" value=4>
                     <label for="strongly-agree">Strongly Agree</label>
+                    <br>
+                    <input type="radio" name="scale-question-1" id="not-sure" value=5>
+                    <label for="not-sure">I'm not sure</label>
                 </div>
                 <br>
                 <br>
@@ -180,6 +183,25 @@ function createCaregiverBlock() {
                     <br>
                     <input type="radio" name="scale-question-2" id="strongly-agree" value="Other">
                     <label for="strongly-agree">Other</label>
+                </div>
+                <br>
+                <br>
+                <div class="scale-question">
+                    <p>What is your stress level today?</p>
+                    <input type="radio" name="scale-question-2" id="strongly-disagree" value="Space and patience">
+                    <label for="strongly-disagree">Very Calm</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-disagree" value="Encouragement and presence">
+                    <label for="somewhat-disagree">Somewhat Calm</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="neutral" value="A small positive distraction">
+                    <label for="neutral">Neutral</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="somewhat-agree" value="I'm not sure">
+                    <label for="somewhat-agree">Somewhat Stressed</label>
+                    <br>
+                    <input type="radio" name="scale-question-2" id="strongly-agree" value="Other">
+                    <label for="strongly-agree">Very Stressed</label>
                 </div>
                 <br>
                 <br>
