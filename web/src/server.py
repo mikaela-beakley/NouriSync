@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, jsonify
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 #from DailyLogFormatter import DailyFormatter
 #from DailyLogAI import DailyLogAI
 
@@ -155,6 +155,54 @@ def save_logs(logs):
         print(f"Error saving logs: {e}")
         return False
 
+def calculate_streak(logs):
+    """Calculate current streak based on log dates"""
+    if not logs:
+        return {
+            'current_streak': 0,
+            'logged_today': False,
+            'last_7_days': [False] * 7
+        }
+    
+    # Sort logs by timestamp (newest first)
+    sorted_logs = sorted(logs, key=lambda x: datetime.strptime(x['timestamp'], "%m/%d/%Y - %I:%M %p"), reverse=True)
+    
+    # Get today's date
+    today = datetime.now().date()
+    
+    # Check if logged today
+    logged_today = False
+    if sorted_logs:
+        latest_log_date = datetime.strptime(sorted_logs[0]['timestamp'], "%m/%d/%Y - %I:%M %p").date()
+        logged_today = latest_log_date == today
+    
+    # Calculate streak
+    current_streak = 0
+    check_date = today if logged_today else today - timedelta(days=1)
+    
+    # Create set of log dates for faster lookup
+    log_dates = set()
+    for log in logs:
+        log_date = datetime.strptime(log['timestamp'], "%m/%d/%Y - %I:%M %p").date()
+        log_dates.add(log_date)
+    
+    # Count consecutive days
+    while check_date in log_dates:
+        current_streak += 1
+        check_date -= timedelta(days=1)
+    
+    # Get last 7 days status (Sunday to Saturday, with today being the rightmost)
+    last_7_days = []
+    for i in range(6, -1, -1):  # Start from 6 days ago to today
+        check_day = today - timedelta(days=i)
+        last_7_days.append(check_day in log_dates)
+    
+    return {
+        'current_streak': current_streak,
+        'logged_today': logged_today,
+        'last_7_days': last_7_days
+    }
+
 #better route labels added
 @app.route("/", methods=['GET'])
 def index():
@@ -284,6 +332,19 @@ def get_logs():
     except Exception as e:
         print(f"Error retrieving logs: {e}")
         return jsonify({"error": "Failed to retrieve logs"}), 500
+
+@app.route("/streak", methods=['GET'])
+def get_streak():
+    """
+    GET endpoint to retrieve streak information
+    """
+    try:
+        logs = load_logs()
+        streak_data = calculate_streak(logs)
+        return jsonify(streak_data)
+    except Exception as e:
+        print(f"Error retrieving streak data: {e}")
+        return jsonify({"error": "Failed to retrieve streak data"}), 500
 
 @app.route("/date", methods=['GET'])
 

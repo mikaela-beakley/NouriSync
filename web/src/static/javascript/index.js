@@ -100,12 +100,74 @@ async function loadLogs() {
     }
 }
 
+// Function to load and display streak information
+async function loadStreak() {
+    try {
+        const response = await fetch('/streak');
+        const streakData = await response.json();
+        console.log('Streak data:', streakData);
+        
+        updateStreakDisplay(streakData);
+        
+    } catch (error) {
+        console.error('Error loading streak:', error);
+        // Set default/error state
+        updateStreakDisplay({
+            current_streak: 0,
+            logged_today: false,
+            last_7_days: [false, false, false, false, false, false, false]
+        });
+    }
+}
+
+// Function to update the streak display
+function updateStreakDisplay(streakData) {
+    const streakContainer = document.getElementById('streak-container');
+    const streakNumber = document.getElementById('streak-number');
+    const streakMessage = document.getElementById('streak-message');
+    const streakDays = document.getElementById('streak-days');
+    
+    // Update streak number
+    streakNumber.textContent = streakData.current_streak;
+    
+    // Update message and styling based on whether logged today
+    if (streakData.logged_today) {
+        // Active state - orange/fire colors
+        streakContainer.classList.remove('inactive');
+        if (streakData.current_streak === 0) {
+            streakMessage.textContent = "Great start! Keep it up!";
+        } else if (streakData.current_streak === 1) {
+            streakMessage.textContent = "1 day streak! You got this!";
+        } else {
+            streakMessage.textContent = `${streakData.current_streak} day streak! You got this!`;
+        }
+    } else {
+        // Inactive state - gray colors
+        streakContainer.classList.add('inactive');
+        streakMessage.textContent = "Add a log today to keep your streak going!";
+    }
+    
+    // Update day bubbles
+    const dayElements = streakDays.querySelectorAll('.day');
+    const dayLabels = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+    
+    dayElements.forEach((dayElement, index) => {
+        dayElement.textContent = dayLabels[index];
+        if (streakData.last_7_days[index]) {
+            dayElement.classList.add('completed');
+        } else {
+            dayElement.classList.remove('completed');
+        }
+    });
+}
+
 // Initialize the page when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, loading logs...');
+    console.log('DOM loaded, loading data...');
     
-    // Load only logs (user data stays hardcoded)
+    // Load logs and streak data
     loadLogs();
+    loadStreak();
 });
 
 // Make toggleLogContent available globally for onclick handlers
