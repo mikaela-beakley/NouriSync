@@ -31,6 +31,10 @@ function createLogHTML(log) {
             <br><em>Source:</em> ${item.source}
         </li>`
     ).join('');
+
+    const emotionsList = log.ai_response.emotions_list.map(emotion => 
+        `<li>${emotion}</li>`
+    ).join('');
     
     return `
         <div class="log">
@@ -48,6 +52,10 @@ function createLogHTML(log) {
                 </button>
             </div>
             <div class="log-content" style="display: none;">
+                <h5> Emotions </h5>
+                <ol class="emotions">
+                    ${emotionsList}
+                </ol>
                 <h5>Recommended plan</h5>
                 <ol class="log-plan">
                     ${planItems}

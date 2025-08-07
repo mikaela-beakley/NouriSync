@@ -508,3 +508,24 @@ textarea {
   font-weight: bold;
   font-size: 1.2em;
 }
+
+/* emotion stuff */
+.emotions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.emotions li {
+    background-color: #eae8ff;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #675fb0;
+    white-space: nowrap;
+}
+
