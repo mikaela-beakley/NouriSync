@@ -33,6 +33,7 @@ hero {
     padding-right: 1em;
     background-color: var(--bg-secondary);
     border-radius: 15px;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
 }
 
 a {
@@ -119,6 +120,7 @@ a {
     justify-content: space-around;
     align-items: center;
     transform: translateY(-16px);
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
 }
 
 .log-button {
@@ -162,6 +164,7 @@ a {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     padding: 1rem;
     padding-bottom: 2.5rem;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
 }
 
 .streak-info-top {
@@ -229,6 +232,7 @@ a {
   padding-bottom: 1rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.04);
   border: 1px solid #e3e7ec;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
 }
 
 /* Log top section */
