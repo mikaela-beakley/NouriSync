@@ -191,10 +191,17 @@ def calculate_streak(logs):
         current_streak += 1
         check_date -= timedelta(days=1)
     
-    # Get last 7 days status (Sunday to Saturday, with today being the rightmost)
+    # Get last 7 days status (Sunday to Saturday, with today being positioned correctly)
     last_7_days = []
-    for i in range(6, -1, -1):  # Start from 6 days ago to today
-        check_day = today - timedelta(days=i)
+    today_weekday = today.weekday()  # 0=Monday, 6=Sunday
+    
+    # Calculate how many days back to go to get to last Sunday
+    days_since_sunday = (today_weekday + 1) % 7
+    last_sunday = today - timedelta(days=days_since_sunday)
+    
+    # Fill in the 7 days from Sunday to Saturday
+    for i in range(7):
+        check_day = last_sunday + timedelta(days=i)
         last_7_days.append(check_day in log_dates)
     
     return {
