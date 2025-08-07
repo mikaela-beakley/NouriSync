@@ -1,0 +1,91 @@
+[
+  {
+    "id": 1,
+    "timestamp": "08/05/2025 - 07:48 PM",
+    "patient_input": {
+      "scale-question-1": "2",
+      "scale-question-2": "1",
+      "tough-time": "Skipped breakfast and lunch.",
+      "day-description": "Felt disconnected and tired most of the day.",
+      "caregiver-helpful": "Let me stay in my room.",
+      "caregiver-unhelpful": "Asked me to eat when I wasn’t ready.",
+      "recover-ready": "3.5",
+      "comments": "Didn’t want to be around anyone."
+    },
+    "caregiver_input": {
+      "patient-meal-completion": "1 of 3",
+      "loved-one-needs": "Consistent meal supervision",
+      "avoided-food": "Pasta and bread",
+      "caloric-intake": "Much lower than usual",
+      "comments": "She isolated in her room for most of the day."
+    },
+    "ai_response": {
+      "emotions_list": ["Body Dissatisfaction", "Anxiety"],
+      "risk_score": "high",
+      "risk_factors": [
+        "Missed multiple meals",
+        "Low reported mood",
+        "Social withdrawal"
+      ],
+      "plan": [
+        {
+          "step": "Reinforce structured, supervised meals.",
+          "rationale": "Supervised eating reduces avoidance behaviors.",
+          "source": "FBT Guidelines, 2019"
+        },
+        {
+          "step": "Monitor for isolation behaviors.",
+          "rationale": "Increased isolation can signal relapse risk.",
+          "source": "APA Eating Disorder Treatment Recommendations, 2020"
+        },
+        {
+          "step": "Contact clinical team if meal refusal continues.",
+          "rationale": "Early escalation prevents hospitalization.",
+          "source": "Journal of Adolescent Health, 2018"
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "timestamp": "08/06/2025 - 06:12 PM",
+    "patient_input": {
+      "scale-question-1": "3",
+      "scale-question-2": "2",
+      "tough-time": "Felt nervous during lunch.",
+      "day-description": "Managed to eat breakfast but avoided dessert at dinner.",
+      "caregiver-helpful": "Sat with me during breakfast.",
+      "caregiver-unhelpful": "Asked too many questions about my plate.",
+      "recover-ready": "5.0",
+      "comments": "Wasn’t hungry most of the day."
+    },
+    "caregiver_input": {
+      "patient-meal-completion": "2 of 3",
+      "loved-one-needs": "Positive reinforcement at meals",
+      "avoided-food": "Cake at dinner",
+      "caloric-intake": "Slightly lower than usual",
+      "comments": "Seemed anxious at lunch, distracted during dinner."
+    },
+    "ai_response": {
+      "emotions_list": ["Sadness", "Restricting"],
+      "risk_score": "medium",
+      "risk_factors": [
+        "Partial meal completion",
+        "Avoidance of calorie-dense foods",
+        "Mild anxiety reported"
+      ],
+      "plan": [
+        {
+          "step": "Use calm conversation during meals.",
+          "rationale": "Reduces stress associated with eating.",
+          "source": "CBT-E Manual, 2016"
+        },
+        {
+          "step": "Encourage trying one avoided food in a low-pressure setting.",
+          "rationale": "Exposure reduces avoidance behaviors over time.",
+          "source": "Journal of Eating Disorders, 2017"
+        }
+      ]
+    }
+  }
+]

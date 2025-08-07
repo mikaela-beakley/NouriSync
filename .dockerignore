@@ -1,0 +1,40 @@
+# Exclude LLM folder - not needed for production
+LLM/
+
+# Git files
+.git
+.gitignore
+README.md
+Dockerfile
+.dockerignore
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.pyc
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+.env
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
+*.bak
