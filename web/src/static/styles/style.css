@@ -223,7 +223,7 @@ a {
 
 /* Individual log card */
 .log {
-  background: var(--bg-secondary);
+  background-color: var(--bg-secondary);
   border-radius: 12px;
   padding-left: 1rem;
   padding-bottom: 1rem;
@@ -305,7 +305,7 @@ a {
   text-align: center;
   font-size: 0.95rem;
   padding: 1rem;
-  background: #fff;
+  background: var(--bg-secondary);
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.03);
