@@ -38,7 +38,7 @@ def llm_call(data, debug):
             risk_factors.append("Low support feeling")
         
         # Check recovery readiness
-        recovery_ready = int(patient_data.get('recover-ready', 5))
+        recovery_ready = float(patient_data.get('recover-ready', 5))
         if recovery_ready <= 3:
             risk_score = "medium"
             risk_factors.append("Low recovery motivation")
