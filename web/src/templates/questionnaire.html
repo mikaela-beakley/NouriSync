@@ -14,7 +14,7 @@
     <div class="main-content-questionnaire" id="main-questionnaire-content">
         <div class="form-page intro-block">
             <a href="/">
-            <img src="../static/home.png" alt="home button" class="home-button">
+                <img src="../static/home.png" alt="home button" class="home-button">
             </a>
             <h2>Daily Check-In</h2>
             <p>Friday, August 1</p>
@@ -24,6 +24,9 @@
             <a href="/questionnaire?phase=1"><button class="questionnaire-begin-button">Begin!</button></a>
         </div>
         <div class="questionnaire-form-caregiver form-page">
+            <a href="/">
+                <img src="../static/home.png" alt="home button" class="home-button">
+            </a>
             <h1>Patient Questions</h1>
             <form action="" method="get" onsubmit="switchToCaregiver(event)" class="questionnaire patient-questionnaire" id="patient-form">
                 <div class="scale-question">
@@ -67,28 +70,53 @@
                 <div class="open-question">
                     <label for="tough-time">Please describe a time during the day that felt especially tough.</label>
                     <br>
-                    <input type="text" id="tough-time" name="tough-time" value="" size="30">
+                    <textarea
+                        type="text"
+                        id="tough-time"
+                        name="tough-time"
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
                 </div>
                 <br>
                 <br>
                 <div class="open-question">
                     <label for="something-feels-safer">Please describe something that makes you feel safer when things get hard.</label>
                     <br>
-                    <input type="text" id="something-feels-safer" name="something-feels-safer" value="" size="30">
+                    <textarea
+                        type="text"
+                        id="something-feels-safer" name="something-feels-safer"
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
                 </div>
                 <br>
                 <br>
                 <div class="open-question">
                     <label for="tough-time">Please describe something that your caregiver does that feels helpful.</label>
                     <br>
-                    <input type="text" id="caregiver-helpful" name="caregiver-helpful" value="" size="30">
+                    <textarea
+                        type="text"
+                        id="caregiver-helpful" name="caregiver-helpful"
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
                 </div>
                 <br>
                 <br>
                 <div class="open-question">
                     <label for="tough-time">Please describe something that you want your caregiver to work on.</label>
                     <br>
-                    <input type="text" id="caregiver-unhelpful" name="caregiver-unhelpful" value="" size="30">
+                    <textarea
+                        type="text"
+                        id="caregiver-unhelpful" name="caregiver-unhelpful"
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
                 </div>
                 <br>
                 <br>
@@ -96,20 +124,31 @@
                     <label for="recover-ready">How ready do you feel to continue working on your recovery?</label>
                     <br>
                     Not ready
-                    <input type="range" id="recover-ready" name="recover-ready" min="0" max="10">
+                    <input type="range" id="recover-ready" name="recover-ready" min="0" max="10" step="0.1">
                     Let's go!
                 </div>
                 <br>
                 <br>
-                <label for="comments">Is there anything you would like to privately note for the journal?</label>
+                <div class="open-question">
+                    <label for="comments">Is there anything you would like to privately note for the journal?</label>
+                    <br>
+                    <textarea
+                        type="text"
+                        id="comments" name="comments" 
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
+                </div>
                 <br>
-                <input type="text" id="comments" name="comments" value="" size=30>
                 <br>
-                <br>
-                <input type="submit" value="I'm done">
+                <input type="submit" value="I'm done" class="patient-done-button">
             </form>
         </div>
         <div class="questionnaire-form-caregiver">
+            <a href="/">
+                <img src="../static/home.png" alt="home button" class="home-button">
+            </a>
             <h1>Caregiver Questions</h1>
             <form action="/questionnaire-caregiver-info" method="post" class="questionnaire caregiver-questionnaire" id="caregiver-form">
                 <div class="scale-question">
@@ -131,7 +170,7 @@
                 </div>
                 <br>
                 <br>
-                <div class="radio-question">
+                <div class="scale-question">
                     <p>What do you think your loved one might need from you right now?</p>
                     <input type="radio" name="scale-question-2" id="strongly-disagree" value="Space and patience">
                     <label for="strongly-disagree">Space and patience</label>
@@ -154,7 +193,7 @@
                 <input type="text" id="comments" name="comments" value="" size=30>
                 <br>
                 <br>
-                <input type="submit" value="Submit" onclick="switchToCaregiver()">
+                <input type="submit" value="Submit" class="form-done-button">
             </form>
         </div>
     </div>

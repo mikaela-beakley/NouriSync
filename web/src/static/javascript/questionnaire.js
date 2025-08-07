@@ -15,6 +15,9 @@ function submitForm(form, path) {
 
 function createPatientBlock() {
     return `<div class="questionnaire-form-caregiver form-page">
+            <a href="/">
+                <img src="../static/home.png" alt="home button" class="home-button">
+            </a>
             <h1>Patient Questions</h1>
             <form action="/questionnaire-patient-info" method="post" class="questionnaire caregiver-questionnaire">
                 <div class="scale-question">
@@ -58,28 +61,53 @@ function createPatientBlock() {
                 <div class="open-question">
                     <label for="tough-time">Please describe a time during the day that felt especially tough.</label>
                     <br>
-                    <input type="text" id="tough-time" name="tough-time" value="" size="30">
+                    <textarea
+                        type="text"
+                        id="tough-time"
+                        name="tough-time"
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    ></textarea>
                 </div>
                 <br>
                 <br>
                 <div class="open-question">
-                    <label for="something-feels-safer">Please describe something that makes you feel safer when things get hard.</label>
+                    <label for="something-feels-safer">How did your day go? Describe it below :)</label>
                     <br>
-                    <input type="text" id="something-feels-safer" name="something-feels-safer" value="" size="30">
+                    <textarea
+                        type="text"
+                        id="something-feels-safer" name="something-feels-safer"
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
                 </div>
                 <br>
                 <br>
                 <div class="open-question">
                     <label for="tough-time">Please describe something that your caregiver does that feels helpful.</label>
                     <br>
-                    <input type="text" id="caregiver-helpful" name="caregiver-helpful" value="" size="30">
+                    <textarea
+                        type="text"
+                        id="caregiver-helpful" name="caregiver-helpful"
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
                 </div>
                 <br>
                 <br>
                 <div class="open-question">
                     <label for="tough-time">Please describe something that you want your caregiver to work on.</label>
                     <br>
-                    <input type="text" id="caregiver-unhelpful" name="caregiver-unhelpful" value="" size="30">
+                    <textarea
+                        type="text"
+                        id="caregiver-unhelpful" name="caregiver-unhelpful"
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
                 </div>
                 <br>
                 <br>
@@ -87,23 +115,34 @@ function createPatientBlock() {
                     <label for="recover-ready">How ready do you feel to continue working on your recovery?</label>
                     <br>
                     Not ready
-                    <input type="range" id="recover-ready" name="recover-ready" min="0" max="10">
+                    <input type="range" id="recover-ready" name="recover-ready" min="0" max="10" step="0.1">
                     Let's go!
                 </div>
                 <br>
                 <br>
-                <label for="comments">Is there anything you would like to privately note for the journal?</label>
+                <div class="open-question">
+                    <label for="comments">Is there anything you would like to privately note for the journal?</label>
+                    <br>
+                    <textarea
+                        type="text"
+                        id="comments" name="comments" 
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
+                </div>
                 <br>
-                <input type="text" id="comments" name="comments" value="" size=30>
                 <br>
-                <br>
-                <input type="submit" value="I'm done">
+                <input type="submit" value="I'm done" class="patient-done-button">
             </form>
         </div>`
 }
 
 function createCaregiverBlock() {
     return `<div class="questionnaire-form-caregiver">
+            <a href="/">
+                <img src="../static/home.png" alt="home button" class="home-button">
+            </a>
             <h1>Caregiver Questions</h1>
             <form action="/questionnaire-caregiver-info" method="post" class="questionnaire caregiver-questionnaire">
                 <div class="scale-question">
@@ -125,7 +164,7 @@ function createCaregiverBlock() {
                 </div>
                 <br>
                 <br>
-                <div class="radio-question">
+                <div class="scale-question">
                     <p>What do you think your loved one might need from you right now?</p>
                     <input type="radio" name="scale-question-2" id="strongly-disagree" value="Space and patience">
                     <label for="strongly-disagree">Space and patience</label>
@@ -144,19 +183,43 @@ function createCaregiverBlock() {
                 </div>
                 <br>
                 <br>
-                <label for="avoided-food">Is there any particular type of food you've notice the patient avoiding? If so, please explain what it is.</label><br>
-                <input type="text" id="avoided-food" name="avoided-food" value="" size=30>
+                <div class="open-question">
+                    <label for="avoided-food">Is there any particular type of food you've notice the patient avoiding? If so, please explain what it is.</label><br>
+                    <textarea
+                        type="text"
+                        id="avoided-food" name="avoided-food" 
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
+                </div>
                 <br>
                 <br>
-                <label for="caloric-intake">If you are measuring daily caloric intake, please input what it is for today below.</label><br>
-                <input type="number" id="caloric-intake" name="caloric-intake" value="" size=30>
+                <div class="open-question">
+                    <label for="caloric-intake">If you are measuring daily caloric intake, please input what it is for today below.</label><br>
+                    <textarea
+                        type="number"
+                        id="caloric-intake" name="caloric-intake" 
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
+                </div>
                 <br>
                 <br>
-                <label for="comments">Is there anything you would like to privately note for the journal?</label><br>
-                <input type="text" id="comments" name="comments" value="" size=30>
+                <div class="open-question">
+                    <label for="comments">Is there anything you would like to privately note for the journal?</label><br>
+                    <textarea
+                        type="text"
+                        id="comments" name="comments"
+                        rows="4"
+                        cols="30"
+                        placeholder="You can write a few sentences here..."
+                    > </textarea>
+                </div>
                 <br>
                 <br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" class="form-done-button">
             </form>
         </div>`;
 }
@@ -206,4 +269,62 @@ switch(searchParams.get('phase')) {
     default:
         renderBlock(createIntroBlock());
         break;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.getElementById("recover-ready");
+
+    function updateSliderBackground(value) {
+        const percent = (value / 10) * 100;
+        const color = getColor(value);
+
+        slider.style.background = `linear-gradient(to right, 
+            ${color} 0%, 
+            ${color} ${percent}%, 
+            gray ${percent}%, 
+            gray 100%)`;
+    }
+
+
+    slider.addEventListener("input", function () {
+        updateSliderBackground(this.value);
+    });
+
+    updateSliderBackground(slider.value); // initialize
+});
+
+function hexToRgb(hex) {
+    const bigint = parseInt(hex.slice(1), 16);
+    return {
+        r: (bigint >> 16) & 255,
+        g: (bigint >> 8) & 255,
+        b: bigint & 255
+    };
+}
+
+function rgbToHex({ r, g, b }) {
+    return "#" + [r, g, b].map(x =>
+        x.toString(16).padStart(2, '0')
+    ).join('');
+}
+
+function interpolateColor(color1, color2, factor) {
+    const c1 = hexToRgb(color1);
+    const c2 = hexToRgb(color2);
+    const result = {
+        r: Math.round(c1.r + (c2.r - c1.r) * factor),
+        g: Math.round(c1.g + (c2.g - c1.g) * factor),
+        b: Math.round(c1.b + (c2.b - c1.b) * factor)
+    };
+    return rgbToHex(result);
+}
+
+function getColor(value) {
+    if (value <= 5) {
+        const factor = value / 5;
+        return interpolateColor('#c22700', '#ffae00', factor);
+    } else {
+        const factor = (value - 5) / 5;
+        return interpolateColor('#ffae00', '#008a17', factor);
+    }
 }

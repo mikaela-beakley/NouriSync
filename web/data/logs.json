@@ -153,5 +153,79 @@
         }
       ]
     }
+  },
+  {
+    "id": 5,
+    "timestamp": "08/06/2025 - 04:42 PM",
+    "patient_input": {
+      "how-are-you-feeling": "2",
+      "how-supported-do-you-feel": "2",
+      "tough-time": "half of the day",
+      "something-feels-safer": " my family :)",
+      "caregiver-helpful": "giving me a hug",
+      "caregiver-unhelpful": " giving me more hugs",
+      "recover-ready": "5",
+      "comments": " I feel happy and sad at the same time"
+    },
+    "caregiver_input": {
+      "patient-meal-completion": "2",
+      "loved-one-needs": "I'm not sure",
+      "comments": "i am happy AND sad. and sad and happy"
+    },
+    "ai_response": {
+      "risk_score": "low",
+      "risk_factors": [
+        "Regular monitoring indicated"
+      ],
+      "plan": [
+        {
+          "step": "Continue regular meal support.",
+          "rationale": "Maintain positive momentum in recovery.",
+          "source": "Recovery-oriented care principles"
+        },
+        {
+          "step": "Celebrate small wins together.",
+          "rationale": "Positive reinforcement enhances motivation.",
+          "source": "Behavioral therapy principles"
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "timestamp": "08/06/2025 - 07:08 PM",
+    "patient_input": {
+      "how-are-you-feeling": null,
+      "how-supported-do-you-feel": null,
+      "tough-time": "",
+      "something-feels-safer": " ",
+      "caregiver-helpful": " ",
+      "caregiver-unhelpful": " ",
+      "recover-ready": "5",
+      "comments": " "
+    },
+    "caregiver_input": {
+      "patient-meal-completion": null,
+      "loved-one-needs": null,
+      "comments": " "
+    },
+    "ai_response": {
+      "risk_score": "low",
+      "risk_factors": [
+        "Regular monitoring indicated"
+      ],
+      "plan": [
+        {
+          "step": "Continue regular meal support.",
+          "rationale": "Maintain positive momentum in recovery.",
+          "source": "Recovery-oriented care principles"
+        },
+        {
+          "step": "Celebrate small wins together.",
+          "rationale": "Positive reinforcement enhances motivation.",
+          "source": "Behavioral therapy principles"
+        }
+      ]
+    }
   }
 ]
