@@ -6,7 +6,7 @@
     --fire-orange: #e96500;
     --accent-primary: #ECAD4E;
     --accent-primary-light: #F4D19B;
-    --transition: .75s
+    --transition: .75s;
 }
 
 body {
@@ -74,6 +74,7 @@ a {
   padding: .5rem 1rem;
   border-radius: 30px;
   background-color: var(--bg-secondary);
+  flex-wrap: nowrap;
 }
 
 .nav-link:hover {
@@ -89,7 +90,7 @@ a {
     display: flex;
     align-items: flex-start;
     gap: 2rem;
-    flex-wrap: wrap; /* Helps on smaller screens */
+    flex-wrap: wrap;
 }
 
 .welcome-left {
@@ -118,7 +119,7 @@ a {
     display: none;
     position: absolute;
     top: 120%; 
-    left: 40%;
+    left: 10%;
     transform: translateX(-50%);
     background-color: var(--bg-secondary);
     color: #333;
@@ -251,14 +252,12 @@ a {
   color: var(--bg-secondary);
 }
 
-/* Dynamic log container */
 .logs-list {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* Individual log card */
 .log {
   background-color: var(--bg-secondary);
   border-radius: 12px;
@@ -269,7 +268,6 @@ a {
   box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.08);
 }
 
-/* Log top section */
 .log-top-info h5 {
   font-size: 1rem;
   font-weight: 600;
@@ -277,7 +275,6 @@ a {
   color: #2c3e50;
 }
 
-/* Risk display styling */
 .risk-indicator {
   display: inline-block;
   padding: 0.25rem 0.5rem;
@@ -302,14 +299,12 @@ a {
   color: #c62828;
 }
 
-/* Bottom log info */
 .log-bottom-info p {
   font-size: 0.95rem;
   margin-bottom: 1rem;
   color: #333;
 }
 
-/* Collapsible button */
 .collapsable {
   background: transparent;
   border: none;
@@ -321,7 +316,6 @@ a {
   transition: transform 0.3s ease;
 }
 
-/* Expanded content */
 .log-content {
   margin-top: 1rem;
   font-size: 0.9rem;
