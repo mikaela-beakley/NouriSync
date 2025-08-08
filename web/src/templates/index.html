@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NouriSync - Home</title>
+    <link rel="stylesheet" href="..\static\styles\style.css">
+    <script src="../static/javascript/index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8f93587ab7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <img src="../static/image-removebg-preview.png" alt="nourisync logo" class="nourisync-icon">
+            <h3 class="logo">NOURISYNC</h3>
+            <ul class="nav-links">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">About</a>
+                <div class="nav-container">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-circle-user fa-xl person-icon"></i>
+                    </a>
+                    <div class="info-box">
+                        <strong>Caregiver:</strong> Helen<br>
+                        <strong>Patient:</strong> Caroline<br>
+                        <strong>Sex:</strong> Female<br>
+                        <strong>Age:</strong> 14<br>
+                        <strong>Diagnosis:</strong> Anorexia Nervosa
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </nav>
+    <hero>
+        <div class="main-content">
+            <div class="welcome-info">
+                <div class="welcome-left">
+                    <h1>Welcome back,<br> Helen.</h1>
+                    <div class="log-buttons">
+                        <a href="/questionnaire">
+                            <button class="log-button new-log-button">
+                                <img src="../static/new-log.png" alt="new log icon" class="log-button-icon">
+                                New Log
+                            </button>
+                        </a>
+                        <button class="log-button export-log-button" onclick="exportLogs()">
+                            <img src="../static/export-log.png" alt="export log icon" class="log-button-icon">
+                            Export Log
+                        </button>
+                    </div>
+                    </div>
+                <div class="streak-info" id="streak-container">
+                    <div class="streak-info-top" id="streak-top">
+                        <img src="../static/fire-logo-streak.png" alt="fire streak logo" class="fire-streak-image" id="streak-image">
+                        <b id="streak-number">0</b>
+                    </div>
+                    <div class="streak-info-bottom" id="streak-message">Loading streak...</div>
+                    <div class="streak-days" id="streak-days">
+                        <span class="day">S</span>
+                        <span class="day">M</span>
+                        <span class="day">T</span>
+                        <span class="day">W</span>
+                        <span class="day">T</span>
+                        <span class="day">F</span>
+                        <span class="day">S</span>
+                    </div>
+                </div>
+            </div>
+            <div class="logs-list" id="logs-container">
+                <!-- Dynamic logs will be loaded here -->
+                <div class="loading-message">Loading logs...</div>
+            </div>
+        </div>
+    </hero>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>

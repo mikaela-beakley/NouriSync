@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "timestamp": "08/05/2025 - 07:48 PM",
+    "patient_input": {
+      "scale-question-1": "2",
+      "scale-question-2": "1",
+      "tough-time": "Skipped breakfast and lunch.",
+      "day-description": "Felt disconnected and tired most of the day.",
+      "caregiver-helpful": "Let me stay in my room.",
+      "caregiver-unhelpful": "Asked me to eat when I wasn’t ready.",
+      "recover-ready": "3.5",
+      "comments": "Didn’t want to be around anyone."
+    },
+    "caregiver_input": {
+      "patient-meal-completion": "1 of 3",
+      "loved-one-needs": "Consistent meal supervision",
+      "avoided-food": "Pasta and bread",
+      "caloric-intake": "Much lower than usual",
+      "comments": "She isolated in her room for most of the day."
+    },
+    "ai_response": {
+      "emotions_list": [
+        "body dissatisfaction",
+        "anxiety"
+      ],
+      "risk_score": "high",
+      "risk_factors": [
+        "Missed multiple meals",
+        "Low reported mood",
+        "Social withdrawal"
+      ],
+      "plan": [
+        {
+          "step": "Reinforce structured, supervised meals.",
+          "rationale": "Supervised eating reduces avoidance behaviors.",
+          "source": "FBT Guidelines, 2019"
+        },
+        {
+          "step": "Monitor for isolation behaviors.",
+          "rationale": "Increased isolation can signal relapse risk.",
+          "source": "APA Eating Disorder Treatment Recommendations, 2020"
+        },
+        {
+          "step": "Contact clinical team if meal refusal continues.",
+          "rationale": "Early escalation prevents hospitalization.",
+          "source": "Journal of Adolescent Health, 2018"
+        }
+      ]
+    }
+  },
+
+  {
+    "id": 2,
+    "timestamp": "08/07/2025 - 07:53 PM",
+    "patient_input": {
+      "scale-question-1": "3",
+      "scale-question-2": "4",
+      "tough-time": "Got nervous before dinner, but it went okay once we started talking.",
+      "day-description": "Had breakfast and lunch without much stress. Dinner was harder but I finished it",
+      "caregiver-helpful": " Checks in on me but lets me eat at my own pace.",
+      "caregiver-unhelpful": " Maybe fewer questions during meals.",
+      "recover-ready": "8.4",
+      "comments": " Feeling more in control of my meals this week."
+    },
+    "caregiver_input": {
+      "patient-meal-completion": "4",
+      "loved-one-needs": "Encouragement and presence",
+      "avoided-food": " No major avoidance today",
+      "caloric-intake": " Normal for her meal plan. 1800 calories",
+      "comments": " She seemed relaxed and even joked during lunch"
+    },
+    "ai_response": {
+      "emotions_list": [
+        "relief",
+        "guilt"
+      ],
+      "risk_score": "moderate",
+      "risk_factors": [
+        "Patient's self-reported feeling of nervousness before dinner and partial meal avoidance indicate potential relapse risk.",
+        "Caregiver's report of patient's joking during lunch may suggest a disconnect between patient's reported feelings and actual emotional state."
+      ],
+      "plan": [
+        {
+          "step": "Increase caregiver presence during meals to provide additional support.",
+          "rationale": "Helps reinforce patient's reported feelings of being supported and may reduce meal avoidance.",
+          "source": "Patient's self-report of feeling more in control of meals"
+        },
+        {
+          "step": "Encourage open communication about patient's emotions during meals.",
+          "rationale": "Helps address potential disconnect between patient's reported feelings and actual emotional state.",
+          "source": "Caregiver's report of patient's joking during lunch"
+        }
+      ]
+    }
+  }
+]
