@@ -11,7 +11,7 @@ console.log('index.js loaded');
 function getRiskClass(riskScore) {
     switch(riskScore.toLowerCase()) {
         case 'low': return 'low-risk';
-        case 'medium': return 'medium-risk';
+        case 'moderate': return 'medium-risk';
         case 'high': return 'high-risk';
         default: return 'low-risk';
     }
