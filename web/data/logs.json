@@ -26,25 +26,19 @@
       ],
       "risk_score": "high",
       "risk_factors": [
-        "Missed multiple meals",
-        "Low reported mood",
-        "Social withdrawal"
+        "Two missed meals in one day, a self-reported drop in perceived support, and marked social withdrawal, which are strong indicators of acute relapse risk in adolescent anorexia nervosa.",
+        "The downward trend from earlier in the week — including avoidance of calorie-dense foods and reduced readiness for recovery — suggests an escalating pattern that requires immediate intervention."
       ],
       "plan": [
         {
-          "step": "Reinforce structured, supervised meals.",
+          "step": "Implement fully supervised meals for the next 72 hours.",
           "rationale": "Supervised eating reduces avoidance behaviors.",
           "source": "FBT Guidelines, 2019"
         },
         {
-          "step": "Monitor for isolation behaviors.",
+          "step": "Schedule an urgent check-in with the clinical team within 24–48 hours.",
           "rationale": "Increased isolation can signal relapse risk.",
           "source": "APA Eating Disorder Treatment Recommendations, 2020"
-        },
-        {
-          "step": "Contact clinical team if meal refusal continues.",
-          "rationale": "Early escalation prevents hospitalization.",
-          "source": "Journal of Adolescent Health, 2018"
         }
       ]
     }
@@ -52,7 +46,7 @@
 
   {
     "id": 2,
-    "timestamp": "08/07/2025 - 07:53 PM",
+    "timestamp": "08/06/2025 - 07:53 PM",
     "patient_input": {
       "scale-question-1": "3",
       "scale-question-2": "4",
@@ -84,12 +78,12 @@
         {
           "step": "Increase caregiver presence during meals to provide additional support.",
           "rationale": "Helps reinforce patient's reported feelings of being supported and may reduce meal avoidance.",
-          "source": "Patient's self-report of feeling more in control of meals"
+          "source": "APA Eating Disorder Treatment Recommendations, 2020"
         },
         {
           "step": "Encourage open communication about patient's emotions during meals.",
           "rationale": "Helps address potential disconnect between patient's reported feelings and actual emotional state.",
-          "source": "Caregiver's report of patient's joking during lunch"
+          "source": "Journal of Adolescent Health, 2018"
         }
       ]
     }
