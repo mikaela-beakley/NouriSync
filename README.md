@@ -1,2 +1,2 @@
 # NouriSync
-This is the GitHub repository for the 2025 Create-a-Thon Team 8 project, titled Nourisync.
+This is the GitHub repository for Team 8's 2025 MIT FutureMakers Create-a-Thon project, titled NouriSync.
